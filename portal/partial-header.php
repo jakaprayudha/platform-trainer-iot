@@ -26,7 +26,7 @@
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
               <a href="https://www.wrappixel.com/templates/materialm-admin-dashboard-template/?ref=376#demos" target="_blank"
-                 class="btn btn-primary">Module</a>
+                 class="btn btn-outline-danger">Module</a>
               <li class="nav-item dropdown">
                  <a class="nav-link " href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                     aria-expanded="false">
