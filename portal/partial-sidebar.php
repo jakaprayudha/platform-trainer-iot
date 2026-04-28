@@ -48,12 +48,12 @@
                </li>
                <li class="sidebar-item">
                   <a class="sidebar-link justify-content-between"
-                     href="#">
+                     href="ms_instructors">
                      <div class="d-flex align-items-center gap-3">
                         <span class="d-flex">
                            <span class="icon-small"></span>
                         </span>
-                        <span class="hide-menu">Guru</span>
+                        <span class="hide-menu">Instruktur</span>
                      </div>
                      <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
                   </a>
