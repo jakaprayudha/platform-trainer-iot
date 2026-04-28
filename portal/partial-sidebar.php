@@ -110,7 +110,7 @@
             <span class="hide-menu">Aktivitas Siswa</span>
          </li>
          <li class="sidebar-item">
-            <a class="sidebar-link" href="#" aria-expanded="false">
+            <a class="sidebar-link" href="praktikum_student" aria-expanded="false">
                <iconify-icon icon="solar:layers-minimalistic-bold-duotone"></iconify-icon>
                <span class="hide-menu">Praktikum</span>
             </a>
