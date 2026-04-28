@@ -36,7 +36,7 @@
             <ul aria-expanded="false" class="collapse first-level">
                <li class="sidebar-item">
                   <a class="sidebar-link justify-content-between"
-                     href="#">
+                     href="ms_devices">
                      <div class="d-flex align-items-center gap-3">
                         <span class="d-flex">
                            <span class="icon-small"></span>
