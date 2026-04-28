@@ -6,7 +6,9 @@
    <title>IoT Trainer Platform</title>
 
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+   <link rel="apple-touch-icon" href="assets/images/favicon.png">
    <style>
       /* ================= GLOBAL ================= */
       body {
@@ -211,6 +213,32 @@
          justify-content: center;
       }
 
+      /* ================= PAGE TRANSITION ================= */
+      .transition-overlay {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: #0f172a;
+         z-index: 9999;
+         opacity: 0;
+         pointer-events: none;
+         transition: 0.5s ease;
+      }
+
+      .transition-overlay.active {
+         opacity: 1;
+         pointer-events: all;
+      }
+
+      /* efek zoom */
+      body.fade-out {
+         transform: scale(0.95);
+         opacity: 0.5;
+         transition: 0.4s;
+      }
+
       /* ================= MOBILE ================= */
       @media (max-width: 768px) {
 
@@ -287,6 +315,7 @@
             <a href="#features">Fitur</a>
             <a href="#roles">Pengguna</a>
             <a href="#stats">Statistik</a>
+            <a href="#" onclick="goLogin()">Masuk</a>
          </div>
       </div>
    </header>
@@ -335,7 +364,7 @@
 
    <section class="cta">
       <h2>Siap Mulai? 🚀</h2>
-      <button>Gabung</button>
+      <button onclick="goLogin()">Gabung</button>
    </section>
 
    <a href="https://wa.me/62" class="wa">💬</a>
@@ -366,8 +395,22 @@
             document.getElementById('menu').classList.remove('active');
          });
       });
+
+      function goLogin() {
+         const overlay = document.getElementById('transition');
+
+         // aktifkan animasi
+         overlay.classList.add('active');
+         document.body.classList.add('fade-out');
+
+         // delay lalu redirect
+         setTimeout(() => {
+            window.location.href = "login"; // ganti sesuai path kamu
+         }, 500);
+      }
    </script>
 
+   <div class="transition-overlay" id="transition"></div>
 </body>
 
 </html>
