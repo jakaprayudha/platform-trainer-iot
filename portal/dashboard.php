@@ -26,6 +26,42 @@
          <!--  Header End -->
          <div class="body-wrapper-inner">
             <div class="container-fluid">
+               <div class="row">
+
+                  <!-- TOTAL SEKOLAH -->
+                  <div class="col-lg-4">
+                     <div class="card bg-primary-subtle shadow-none">
+                        <div class="card-body">
+                           <h6 class="text-muted">🏫 Sekolah Terintegrasi</h6>
+                           <h2 class="fw-bold">33</h2>
+                           <span class="badge bg-success-subtle text-success">+12 bulan ini</span>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- TOTAL SISWA -->
+                  <div class="col-lg-4">
+                     <div class="card bg-success-subtle shadow-none">
+                        <div class="card-body">
+                           <h6 class="text-muted">👨‍🎓 Siswa Aktif IoT</h6>
+                           <h2 class="fw-bold">1,420</h2>
+                           <span class="badge bg-success-subtle text-success">+8% growth</span>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- DEVICE -->
+                  <div class="col-lg-4">
+                     <div class="card bg-warning-subtle shadow-none">
+                        <div class="card-body">
+                           <h6 class="text-muted">📡 Device IoT Aktif</h6>
+                           <h2 class="fw-bold">63</h2>
+                           <span class="badge bg-warning-subtle text-warning">Realtime</span>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
                <!--  Row 1 -->
                <div class="row">
                   <div class="col-lg-8 d-flex align-items-strech">
@@ -33,7 +69,7 @@
                         <div class="card-body">
                            <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
                               <div class="mb-3 mb-sm-0">
-                                 <h5 class="card-title fw-semibold">Sales Profit</h5>
+                                 <h5 class="card-title fw-semibold">Intraksi Pengguna</h5>
                               </div>
                               <div>
                                  <select class="form-select">
@@ -61,7 +97,7 @@
                                              class="fs-7 text-white"></iconify-icon>
                                        </div>
                                        <h6 class="mb-0 fs-4 fw-medium text-muted">
-                                          Total followers
+                                          Total Pengguna
                                        </h6>
                                     </div>
                                     <div class="dropdown dropstart">
@@ -87,7 +123,7 @@
                                  </div>
                                  <div class="row align-items-end justify-content-between">
                                     <div class="col-5">
-                                       <h2 class="mb-6 fs-8">4,562</h2>
+                                       <h2 class="mb-6 fs-8">32</h2>
                                        <span class="badge rounded-pill border border-muted fw-bold text-muted fs-2 py-1">+23% last
                                           month</span>
                                     </div>
@@ -108,7 +144,7 @@
                                           <iconify-icon icon="solar:wallet-2-line-duotone" class="fs-7 text-white"></iconify-icon>
                                        </div>
                                        <h6 class="mb-0 fs-4 fw-medium text-muted">
-                                          Total Income
+                                          Total Realisasi IoT
                                        </h6>
                                     </div>
                                     <div class="dropdown dropstart">
@@ -134,7 +170,7 @@
                                  </div>
                                  <div class="row align-items-center justify-content-between pt-4">
                                     <div class="col-5">
-                                       <h2 class="mb-6 fs-8 text-nowrap">$6,280</h2>
+                                       <h2 class="mb-6 fs-8 text-nowrap">790 Jt</h2>
                                        <span class="badge rounded-pill border border-muted fw-bold text-muted fs-2 py-1">+18% last
                                           month</span>
                                     </div>
@@ -152,16 +188,16 @@
                   <div class="col-lg-8 d-flex align-items-stretch">
                      <div class="card w-100 overflow-hidden">
                         <div class="card-body pb-0">
-                           <h4 class="fs-4 mb-1 card-title">Popular Products</h4>
-                           <p class="mb-0 card-subtitle">Total 9k Visitors</p>
+                           <h4 class="fs-4 mb-1 card-title">Data Sekolah</h4>
+                           <p class="mb-0 card-subtitle">Total 1k Visitors</p>
                         </div>
                         <div data-simplebar class="position-relative">
                            <div class="table-responsive products-tabel" data-simplebar>
                               <table class="table text-nowrap mb-0 align-middle table-hover">
                                  <thead class="fs-4">
                                     <tr>
-                                       <th class="fs-3 px-4">Products</th>
-                                       <th class="fs-3">Payment</th>
+                                       <th class="fs-3 px-4">Sekolah</th>
+                                       <th class="fs-3">Peserta Didik</th>
                                        <th class="fs-3">Status</th>
                                        <th class="fs-3"></th>
                                     </tr>
@@ -174,16 +210,16 @@
                                                 width="60" height="60" />
                                              <div class="ms-3 product-title">
                                                 <h6 class="fs-3 mb-0 text-truncate-2">
-                                                   iPhone 13 pro max-Pacific Blue-128GB storage
+                                                   SMP Negeri 1 Pantai Cermin
                                                 </h6>
                                              </div>
                                           </div>
                                        </td>
                                        <td>
                                           <h5 class="mb-0 fs-4">
-                                             $180 <span class="text-muted">/499</span>
+                                             3 <span class="text-muted">/80</span>
                                           </h5>
-                                          <p class="text-muted mb-2">Partially paid</p>
+                                          <p class="text-muted mb-2">Activity</p>
                                           <div class="progress bg-light w-100" style="height: 4px">
                                              <div class="progress-bar bg-warning" role="progressbar" aria-label="Example 4px high"
                                                 style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -223,16 +259,16 @@
                                                 width="60" height="60" />
                                              <div class="ms-3 product-title">
                                                 <h6 class="fs-3 mb-0 text-truncate-2">
-                                                   Apple MacBook Pro 13 inch-M1-8/256GB-space
+                                                   SMP Negeri 1 Sei Rampah
                                                 </h6>
                                              </div>
                                           </div>
                                        </td>
                                        <td>
                                           <h5 class="mb-0 fs-4">
-                                             $120 <span class="text-muted">/499</span>
+                                             2 <span class="text-muted">/65</span>
                                           </h5>
-                                          <p class="text-muted mb-2">Full paid</p>
+                                          <p class="text-muted mb-2">Activity</p>
                                           <div class="progress bg-light w-100" style="height: 4px">
                                              <div class="progress-bar bg-success" role="progressbar" aria-label="Example 4px high"
                                                 style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -272,14 +308,14 @@
                                                 width="60" height="60" />
                                              <div class="ms-3 product-title">
                                                 <h6 class="fs-3 mb-0 text-truncate-2">
-                                                   PlayStation 5 DualSense Wireless Controller
+                                                   SMP Negeri 1 Perbaungan
                                                 </h6>
                                              </div>
                                           </div>
                                        </td>
                                        <td>
                                           <h5 class="mb-0 fs-4">
-                                             $120 <span class="text-muted">/499</span>
+                                             1 <span class="text-muted">/75</span>
                                           </h5>
                                           <p class="text-muted mb-2">Cancelled</p>
                                           <div class="progress bg-light w-100" style="height: 4px">
@@ -321,17 +357,16 @@
                                                 width="60" height="60" />
                                              <div class="ms-3 product-title">
                                                 <h6 class="fs-3 mb-0 text-truncate-2">
-                                                   Amazon Basics Mesh, Mid-Back, Swivel Office
-                                                   De...
+                                                   SMP Negeri 1 Serbajadi
                                                 </h6>
                                              </div>
                                           </div>
                                        </td>
                                        <td>
                                           <h5 class="mb-0 fs-4">
-                                             $120 <span class="text-muted">/499</span>
+                                             2 <span class="text-muted">/90</span>
                                           </h5>
-                                          <p class="text-muted mb-2">Partially paid</p>
+                                          <p class="text-muted mb-2">Activity</p>
                                           <div class="progress bg-light w-100" style="height: 4px">
                                              <div class="progress-bar bg-warning" role="progressbar" aria-label="Example 4px high"
                                                 style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -374,7 +409,7 @@
                      <div class="card w-100">
                         <div class="card-body">
                            <div class="d-flex mb-3 justify-content-between align-items-center">
-                              <h4 class="mb-0 card-title">Earning Reports</h4>
+                              <h4 class="mb-0 card-title">Feature Platform</h4>
                               <div class="dropdown">
                                  <button id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
                                     class="rounded-circle btn-transparent rounded-circle btn-sm px-1 btn shadow-none">
@@ -399,7 +434,7 @@
                                        <iconify-icon icon="solar:card-line-duotone" class="fs-7 text-primary"></iconify-icon>
                                     </div>
                                     <div>
-                                       <h6 class="mb-1 fs-3">Bank Transfer</h6>
+                                       <h6 class="mb-1 fs-3">Praktikum IoT</h6>
                                        <p class="mb-0 fs-2 d-flex align-items-center gap-1">
                                           and +1 more<i class="ti ti-info-circle"></i></i>
                                        </p>
@@ -417,7 +452,7 @@
                                        <iconify-icon icon="solar:wallet-2-line-duotone" class="fs-7 text-danger"></iconify-icon>
                                     </div>
                                     <div>
-                                       <h6 class="mb-1 fs-3">Net Profit</h6>
+                                       <h6 class="mb-1 fs-3">CBT</h6>
                                        <p class="mb-0 fs-2 d-flex align-items-center gap-1">
                                           and +4 more<i class="ti ti-info-circle"></i></i>
                                        </p>
@@ -435,7 +470,7 @@
                                        <iconify-icon icon="solar:course-up-line-duotone" class="fs-7 text-secondary"></iconify-icon>
                                     </div>
                                     <div>
-                                       <h6 class="mb-1 fs-3">Total Income</h6>
+                                       <h6 class="mb-1 fs-3">Video Tutorial</h6>
                                        <p class="mb-0 fs-2 d-flex align-items-center gap-1">
                                           and +4 more<i class="ti ti-info-circle"></i></i>
                                        </p>
@@ -454,7 +489,7 @@
                                           class="fs-7 text-body-color"></iconify-icon>
                                     </div>
                                     <div>
-                                       <h6 class="mb-1 fs-3">Total Expenses</h6>
+                                       <h6 class="mb-1 fs-3">Cloud IoT</h6>
                                        <p class="mb-0 fs-2 d-flex align-items-center gap-1">
                                           and +2 more<i class="ti ti-info-circle"></i></i>
                                        </p>
@@ -472,7 +507,7 @@
                                        <iconify-icon icon="solar:waterdrops-line-duotone" class="fs-7 text-warning"></iconify-icon>
                                     </div>
                                     <div>
-                                       <h6 class="mb-1 fs-3">Marketing</h6>
+                                       <h6 class="mb-1 fs-3">Web Services</h6>
                                        <p class="mb-0 fs-2 d-flex align-items-center gap-1">
                                           and +3 more<i class="ti ti-info-circle"></i></i>
                                        </p>
@@ -482,7 +517,7 @@
                                     class="badge rounded-pill fw-medium fs-2 d-flex align-items-center bg-success-subtle text-success text-end"><i
                                        class="ti ti-caret-up"></i>9.25%</span>
                               </li>
-                              <a href="javascript:void(0)" class="fs-4 mt-7 text-center d-block">View more markets</a>
+                              <a href="javascript:void(0)" class="fs-4 mt-7 text-center d-block">View more activity</a>
                            </ul>
                         </div>
                      </div>
@@ -504,8 +539,7 @@
                         </div>
                         <div class="card-body p-4">
                            <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm  mt-3">Social</span>
-                           <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="">Garmins Instinct Crossover is
-                              a rugged hybrid smartwatch</a>
+                           <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="">Membuat Webservice IoT Weather Station</a>
                            <div class="d-flex align-items-center gap-4">
                               <div class="d-flex align-items-center gap-2">
                                  <i class="ti ti-eye text-dark fs-5"></i>9,125
@@ -535,9 +569,7 @@
                         </div>
                         <div class="card-body p-4">
                            <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm  mt-3">Gadget</span>
-                           <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="">Intel loses bid to revive
-                              antitrust case
-                              against patent foe Fortress</a>
+                           <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="">Panduan Penggunaan IoT Platform Blynk dan Thinkspek</a>
                            <div class="d-flex align-items-center gap-4">
                               <div class="d-flex align-items-center gap-2">
                                  <i class="ti ti-eye text-dark fs-5"></i>4,150
@@ -567,9 +599,7 @@
                         </div>
                         <div class="card-body p-4">
                            <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm  mt-3">Health</span>
-                           <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="">COVID outbreak deepens as more
-                              lockdowns
-                              loom in China</a>
+                           <a class="d-block my-4 fs-5 text-dark fw-semibold link-primary" href="">Sistem Kendali dan Monitoring Ketinggian Level Air</a>
                            <div class="d-flex align-items-center gap-4">
                               <div class="d-flex align-items-center gap-2">
                                  <i class="ti ti-eye text-dark fs-5"></i>9,480

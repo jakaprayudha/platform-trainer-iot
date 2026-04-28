@@ -15,7 +15,7 @@
             <span class="hide-menu">Aktivitas Instruktur</span>
          </li>
          <li class="sidebar-item">
-            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+            <a class="sidebar-link" href="dashboard" aria-expanded="false">
                <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
                <span class="hide-menu">Dashboard</span>
             </a>
