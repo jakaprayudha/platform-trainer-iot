@@ -118,7 +118,7 @@
       /* ================= BACK LANDING 🔥 ================= */
       .back-landing {
          text-align: center;
-         margin-top: 18px;
+         margin-top: 15px;
       }
 
       .back-landing a {
@@ -219,7 +219,7 @@
 
          <!-- 🔥 INI YANG KAMU MAU -->
          <div class="back-landing">
-            <a href="index.php" onclick="goLanding(event)">← Kembali Landing Page</a>
+            <a href="index" onclick="goLanding(event)">← Kembali Landing Page</a>
          </div>
 
 
@@ -241,7 +241,7 @@
          btn.disabled = true;
 
          setTimeout(() => {
-            window.location.href = "dashboard.php";
+            window.location.href = "portal/dashboard";
          }, 1000);
       }
 
@@ -251,7 +251,7 @@
          document.body.style.opacity = 0;
 
          setTimeout(() => {
-            window.location.href = "index.php";
+            window.location.href = "index";
          }, 400);
       }
    </script>

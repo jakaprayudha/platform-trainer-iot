@@ -200,7 +200,7 @@
       </div>
 
       <div class="back">
-         <a href="login.php">← Kembali ke Login</a>
+         <a href="login">← Kembali ke Login</a>
       </div>
 
    </div>
