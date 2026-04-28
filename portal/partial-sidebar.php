@@ -89,23 +89,19 @@
                   </span>
                   <span class="hide-menu">Praktikum</span>
                </div>
-               <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
             </a>
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between"
-               href="#" aria-expanded="false">
+               href="praktikum_monitoring" aria-expanded="false">
                <div class="d-flex align-items-center gap-3">
                   <span class="d-flex">
                      <iconify-icon icon="solar:layers-line-duotone" class=""></iconify-icon>
                   </span>
                   <span class="hide-menu">Monitoring</span>
                </div>
-               <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
             </a>
          </li>
-
-
          <li>
             <span class="sidebar-divider lg"></span>
          </li>
