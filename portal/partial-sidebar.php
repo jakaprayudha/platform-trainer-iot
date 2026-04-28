@@ -82,7 +82,7 @@
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between"
-               href="#" aria-expanded="false">
+               href="praktikum" aria-expanded="false">
                <div class="d-flex align-items-center gap-3">
                   <span class="d-flex">
                      <iconify-icon icon="solar:chart-line-duotone" class=""></iconify-icon>
