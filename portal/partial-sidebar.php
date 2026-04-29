@@ -134,7 +134,7 @@
             </a>
          </li>
          <li class="sidebar-item">
-            <a class="sidebar-link" href="#" aria-expanded="false">
+            <a class="sidebar-link" href="praktikum_progress" aria-expanded="false">
                <iconify-icon icon="solar:star-fall-minimalistic-2-line-duotone"></iconify-icon>
                <span class="hide-menu">Progress</span>
             </a>
