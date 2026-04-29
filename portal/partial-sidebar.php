@@ -116,7 +116,7 @@
             </a>
          </li>
          <li class="sidebar-item">
-            <a class="sidebar-link" href="#" aria-expanded="false">
+            <a class="sidebar-link" href="device_interactive" aria-expanded="false">
                <iconify-icon icon="solar:danger-circle-line-duotone"></iconify-icon>
                <span class="hide-menu">Interaksi Perangkat</span>
             </a>
