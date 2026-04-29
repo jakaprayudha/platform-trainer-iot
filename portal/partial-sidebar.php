@@ -128,7 +128,7 @@
             </a>
          </li>
          <li class="sidebar-item">
-            <a class="sidebar-link" href="#" aria-expanded="false">
+            <a class="sidebar-link" href="praktikum_feedback" aria-expanded="false">
                <iconify-icon icon="solar:file-text-line-duotone"></iconify-icon>
                <span class="hide-menu">Umpan Balik</span>
             </a>
