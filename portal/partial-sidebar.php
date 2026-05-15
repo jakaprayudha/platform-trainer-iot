@@ -218,26 +218,26 @@
             <ul aria-expanded="false" class="collapse first-level">
                <li class="sidebar-item">
                   <a class="sidebar-link justify-content-between"
-                     href="#">
+                     href="gov_monitoring">
                      <div class="d-flex align-items-center gap-3">
                         <span class="d-flex">
                            <span class="icon-small"></span>
                         </span>
                         <span class="hide-menu">Monitoring</span>
                      </div>
-                     <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
                   </a>
                </li>
                <li class="sidebar-item">
                   <a class="sidebar-link justify-content-between"
-                     href="#">
+                     href="got_analytics">
                      <div class="d-flex align-items-center gap-3">
                         <span class="d-flex">
                            <span class="icon-small"></span>
                         </span>
                         <span class="hide-menu">Analytics</span>
                      </div>
-                     <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
                   </a>
                </li>
             </ul>
