@@ -244,7 +244,7 @@
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between"
-               href="#"
+               href="evaluasi_program"
                aria-expanded="false">
                <div class="d-flex align-items-center gap-3">
                   <span class="d-flex">
@@ -252,19 +252,19 @@
                   </span>
                   <span class="hide-menu">Evaluasi Program</span>
                </div>
-               <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
+               <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
             </a>
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between"
-               href="#" aria-expanded="false">
+               href="ms_users" aria-expanded="false">
                <div class="d-flex align-items-center gap-3">
                   <span class="d-flex">
                      <iconify-icon icon="solar:user-plus-rounded-line-duotone"></iconify-icon>
                   </span>
                   <span class="hide-menu">Management User</span>
                </div>
-               <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
+               <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
             </a>
          </li>
          <li class="sidebar-item">
