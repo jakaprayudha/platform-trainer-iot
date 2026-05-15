@@ -305,14 +305,14 @@
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between"
-               href="#" aria-expanded="false">
+               href="notes" aria-expanded="false">
                <div class="d-flex align-items-center gap-3">
                   <span class="d-flex">
                      <iconify-icon icon="solar:document-text-line-duotone" class=""></iconify-icon>
                   </span>
                   <span class="hide-menu">Catatan</span>
                </div>
-               <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
+               <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
             </a>
          </li>
          <li class="sidebar-item">
