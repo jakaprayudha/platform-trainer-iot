@@ -276,7 +276,7 @@
                   </span>
                   <span class="hide-menu">Calendar</span>
                </div>
-               <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+               <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
             </a>
          </li>
          <li class="sidebar-item">
@@ -293,7 +293,7 @@
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between"
-               href="#" aria-expanded="false">
+               href="chat" aria-expanded="false">
                <div class="d-flex align-items-center gap-3">
                   <span class="d-flex">
                      <iconify-icon icon="solar:chat-round-line-line-duotone" class=""></iconify-icon>
