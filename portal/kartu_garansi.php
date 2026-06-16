@@ -208,7 +208,7 @@ $kode_garansi =
                            <br><br><br>
 
                            <strong>
-                              CV. KREATIF TECHNO SOLUSINDO
+                              PT. KREATIF TECHNO SOLUSINDO
                            </strong>
 
                         </div>
