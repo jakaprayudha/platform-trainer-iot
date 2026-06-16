@@ -721,7 +721,7 @@
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between"
-               href="#" aria-expanded="false">
+               href="chat_bot" aria-expanded="false">
                <div class="d-flex align-items-center gap-3">
                   <span class="d-flex">
                      <iconify-icon icon="solar:sticker-smile-circle-2-line-duotone" class=""></iconify-icon>
