@@ -374,6 +374,18 @@
             </a>
          </li>
          <li class="sidebar-item">
+            <a class="sidebar-link justify-content-between"
+               href="berita_acara"
+               aria-expanded="false">
+               <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                     <iconify-icon icon="solar:settings-line-duotone" class=""></iconify-icon>
+                  </span>
+                  <span class="hide-menu">Berita Acara</span>
+               </div>
+            </a>
+         </li>
+         <li class="sidebar-item">
             <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
                <div class="d-flex align-items-center gap-3">
                   <span class="d-flex">
