@@ -732,13 +732,14 @@
             </a>
          </li>
          <li class="sidebar-item">
-            <a class="sidebar-link" href="#" aria-expanded="false">
+            <a class="sidebar-link" href="help_desk" aria-expanded="false">
                <iconify-icon icon="solar:sticker-smile-circle-2-line-duotone"></iconify-icon>
                <span class="hide-menu">Admin Trainer Kit</span>
             </a>
          </li>
          <li class="sidebar-item">
-            <a class="sidebar-link" href="#" aria-expanded="false">
+            <a class="sidebar-link" href="https://wa.me/6281234567890"
+               target="_blank" aria-expanded="false">
                <iconify-icon icon="solar:planet-3-line-duotone"></iconify-icon>
                <span class="hide-menu">Admin Dinas Pendidikan</span>
             </a>
@@ -748,7 +749,7 @@
          class="unlimited-access d-flex align-items-center hide-menu bg-secondary-subtle position-relative mb-7 mt-4 p-3 rounded-3">
          <div class="flex-shrink-0">
             <h6 class="fw-semibold fs-4 mb-6 text-dark w-75 lh-sm">Check Pro Version</h6>
-            <a href="#"
+            <a href="packet_pro"
                class="btn btn-secondary fs-2 fw-semibold lh-sm">Check</a>
          </div>
          <div class="unlimited-access-img">
