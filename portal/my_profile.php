@@ -186,6 +186,58 @@
 
                      </div>
 
+
+                     <!-- SUBSCRIPTION -->
+                     <div class="card border-0 shadow-sm">
+
+                        <div class="card-body">
+
+                           <h5 class="fw-bold mb-4">
+                              💎 Subscription
+                           </h5>
+
+                           <div class="mb-3">
+
+                              <small class="text-muted">
+                                 Paket Aktif
+                              </small>
+
+                              <div class="fw-bold">
+                                 Enterprise Package
+                              </div>
+
+                           </div>
+
+                           <div class="mb-3">
+
+                              <small class="text-muted">
+                                 Status
+                              </small>
+
+                              <div>
+                                 <span class="badge bg-success">
+                                    Active
+                                 </span>
+                              </div>
+
+                           </div>
+
+                           <div>
+
+                              <small class="text-muted">
+                                 Expired Date
+                              </small>
+
+                              <div class="fw-bold">
+                                 31 Desember 2026
+                              </div>
+
+                           </div>
+
+                        </div>
+
+                     </div>
+
                   </div>
 
                   <!-- PROFILE FORM -->
@@ -325,6 +377,63 @@
                                  Aktifkan
 
                               </button>
+
+                           </div>
+
+                        </div>
+
+                     </div>
+
+                     <!-- LOGIN ACTIVITY -->
+                     <div class="card border-0 shadow-sm">
+
+                        <div class="card-header bg-white">
+
+                           <h5 class="fw-bold mb-0">
+                              📜 Login Activity
+                           </h5>
+
+                        </div>
+
+                        <div class="card-body">
+
+                           <div class="d-flex justify-content-between border-bottom pb-3 mb-3">
+
+                              <div>
+
+                                 <div class="fw-semibold">
+                                    Windows Chrome
+                                 </div>
+
+                                 <small class="text-muted">
+                                    Jakarta, Indonesia
+                                 </small>
+
+                              </div>
+
+                              <small class="text-success">
+                                 Active Now
+                              </small>
+
+                           </div>
+
+                           <div class="d-flex justify-content-between">
+
+                              <div>
+
+                                 <div class="fw-semibold">
+                                    Android Mobile
+                                 </div>
+
+                                 <small class="text-muted">
+                                    Surabaya, Indonesia
+                                 </small>
+
+                              </div>
+
+                              <small class="text-muted">
+                                 2 Days Ago
+                              </small>
 
                            </div>
 
