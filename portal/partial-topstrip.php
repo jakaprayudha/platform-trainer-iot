@@ -37,13 +37,13 @@
                    aria-labelledby="drop3">
                    <div class="message-body">
 
-                      <a href="#"
+                      <a href="packet_pro"
                          class="dropdown-item rounded fw-normal d-flex align-items-center gap-2">
                          <span style="font-size:18px;">⚡️</span>
                          Paket Pro
                       </a>
 
-                      <a href="#"
+                      <a href="packet_enterprise"
                          class="dropdown-item rounded fw-normal d-flex align-items-center gap-2">
                          <span style="font-size:18px;">🏛️</span>
                          Paket Enterprise
