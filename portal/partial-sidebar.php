@@ -701,7 +701,7 @@
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between"
-               href="#"
+               href="cbt_competition"
                aria-expanded="false">
                <div class="d-flex align-items-center gap-3">
                   <span class="d-flex">
