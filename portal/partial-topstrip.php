@@ -52,16 +52,16 @@
                    </div>
                 </div>
              </div>
-             <a target="_blank"
+             <a
                 class="get-pro-btn rounded btn btn-primary d-flex align-items-center gap-2 fs-4 border-0 px-3 py-2"
-                href="#">
+                href="packet_pro">
                 ⚡️
                 Get Pro
              </a>
           </div>
-          <a target="_blank"
+          <a
              class="all-access-pass-btn rounded btn btn-primary d-flex align-items-center justify-content-center gap-2 fs-4 border-0 text-black px-3 py-2"
-             href="#">
+             href="packet_enterprise">
              <iconify-icon class="fs-5" icon="solar:bolt-linear"></iconify-icon>
              All Access Pass
           </a>
