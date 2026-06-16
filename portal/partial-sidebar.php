@@ -375,11 +375,23 @@
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between"
+               href="kartu_garansi"
+               aria-expanded="false">
+               <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                     <iconify-icon icon="solar:folder-line-duotone" class=""></iconify-icon>
+                  </span>
+                  <span class="hide-menu">Kartu Garansi</span>
+               </div>
+            </a>
+         </li>
+         <li class="sidebar-item">
+            <a class="sidebar-link justify-content-between"
                href="berita_acara"
                aria-expanded="false">
                <div class="d-flex align-items-center gap-3">
                   <span class="d-flex">
-                     <iconify-icon icon="solar:settings-line-duotone" class=""></iconify-icon>
+                     <iconify-icon icon="solar:file-line-duotone" class=""></iconify-icon>
                   </span>
                   <span class="hide-menu">Berita Acara</span>
                </div>
