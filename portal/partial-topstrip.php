@@ -1,10 +1,10 @@
  <div class="app-topstrip bg-dark py-3 px-4 w-100 d-lg-flex align-items-center justify-content-between">
     <div class="d-none d-sm-flex align-items-center justify-content-center gap-9 mb-3 mb-lg-0">
        <a class="d-flex justify-content-center" href="https://www.wrappixel.com/" target="_blank">
-          <img src="../assets/images/logos/logo-wrappixel.svg" alt="" width="147">
+          <img src="../assets/images/logos/logo_platform_iot.png" alt="" width="100">
        </a>
        <div class="d-none d-xl-flex align-items-center gap-3 border-start border-white border-opacity-25 ps-9">
-          <a href="#"
+          <a href="trainer_kit"
              class="link-hover d-flex align-items-center gap-2 border-0 text-white lh-sm fs-4">
              <iconify-icon class="fs-6" icon="solar:window-frame-linear"></iconify-icon>
              Trainer Kit
