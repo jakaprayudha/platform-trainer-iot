@@ -246,9 +246,9 @@
 
                                  <td class="text-center">
 
-                                    <button class="btn btn-sm btn-light">
-                                       <i class="ti ti-eye"></i>
-                                    </button>
+                                    <a href='bank_soal_details'> <button class="btn btn-sm btn-light">
+                                          <i class="ti ti-eye"></i>
+                                       </button></a>
 
                                  </td>
 
@@ -290,9 +290,7 @@
 
                                  <td class="text-center">
 
-                                    <button class="btn btn-sm btn-light">
-                                       <i class="ti ti-eye"></i>
-                                    </button>
+                                    <a></a>
 
                                  </td>
 
@@ -334,9 +332,9 @@
 
                                  <td class="text-center">
 
-                                    <button class="btn btn-sm btn-light">
-                                       <i class="ti ti-eye"></i>
-                                    </button>
+                                    <a href='bank_soal_details'> <button class="btn btn-sm btn-light">
+                                          <i class="ti ti-eye"></i>
+                                       </button></a>
 
                                  </td>
 
@@ -378,9 +376,9 @@
 
                                  <td class="text-center">
 
-                                    <button class="btn btn-sm btn-light">
-                                       <i class="ti ti-eye"></i>
-                                    </button>
+                                    <a href='bank_soal_details'> <button class="btn btn-sm btn-light">
+                                          <i class="ti ti-eye"></i>
+                                       </button></a>
 
                                  </td>
 
@@ -422,9 +420,9 @@
 
                                  <td class="text-center">
 
-                                    <button class="btn btn-sm btn-light">
-                                       <i class="ti ti-eye"></i>
-                                    </button>
+                                    <a href='bank_soal_details'> <button class="btn btn-sm btn-light">
+                                          <i class="ti ti-eye"></i>
+                                       </button></a>
 
                                  </td>
 
