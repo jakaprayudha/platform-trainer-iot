@@ -373,28 +373,245 @@
             <ul aria-expanded="false" class="collapse first-level">
                <li class="sidebar-item">
                   <a class="sidebar-link justify-content-between"
-                     href="#">
+                     href="comp_arduino_nano">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Arduino Nano</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_esp8266">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">ESP8266</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_lcd">
                      <div class="d-flex align-items-center gap-3">
                         <span class="d-flex">
                            <span class="icon-small"></span>
                         </span>
                         <span class="hide-menu">LCD Display</span>
                      </div>
-                     <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
                   </a>
                </li>
                <li class="sidebar-item">
                   <a class="sidebar-link justify-content-between"
-                     href="#">
+                     href="comp_servo">
                      <div class="d-flex align-items-center gap-3">
                         <span class="d-flex">
                            <span class="icon-small"></span>
                         </span>
                         <span class="hide-menu">Motor Servo</span>
                      </div>
-                     <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
                   </a>
                </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_push_button">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Push Button</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_relay_4channel">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Relay 4 Channel</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_mq_5">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Sensor MQ-5</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_fire">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Sensor Api</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_ultrasonic">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Sensor Ultrasonik</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_infrared">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Sensor Infrared</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_ldr">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Sensor LDR</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_sw40">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Sensor Getar SW-420</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_dht11">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Sensor DHT 11</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_led5mm">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">LED 5mm</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_ledrgb">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">LED RGB</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_led_matrix_8">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Led Matrix 8x8</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_lcd_oled">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">LCD Display OLED</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_7segment">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">7 Segment</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_icmax7219">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">IC MAX7219</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                     href="comp_buzzer">
+                     <div class="d-flex align-items-center gap-3">
+                        <span class="d-flex">
+                           <span class="icon-small"></span>
+                        </span>
+                        <span class="hide-menu">Buzzer</span>
+                     </div>
+                     <!-- <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span> -->
+                  </a>
+               </li>
+
             </ul>
          </li>
          <li class="sidebar-item">
