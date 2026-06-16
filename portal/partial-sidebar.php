@@ -14,12 +14,6 @@
             <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
             <span class="hide-menu">Aktivitas Instruktur</span>
          </li>
-         <li class="sidebar-item">
-            <a class="sidebar-link" href="dashboard" aria-expanded="false">
-               <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
-               <span class="hide-menu">Dashboard</span>
-            </a>
-         </li>
          <!-- ---------------------------------- -->
          <!-- Dashboard -->
          <!-- ---------------------------------- -->
@@ -147,6 +141,12 @@
          <li class="nav-small-cap">
             <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
             <span class="hide-menu">Monitoring Governance</span>
+         </li>
+         <li class="sidebar-item">
+            <a class="sidebar-link" href="dashboard" aria-expanded="false">
+               <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
+               <span class="hide-menu">Dashboard</span>
+            </a>
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
@@ -359,6 +359,19 @@
          <li class="nav-small-cap">
             <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
             <span class="hide-menu">Trainer Kit</span>
+         </li>
+         <li class="sidebar-item">
+            <a class="sidebar-link justify-content-between"
+               href="trainer_kit_v1"
+               aria-expanded="false">
+               <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                     <iconify-icon icon="solar:settings-line-duotone" class=""></iconify-icon>
+                  </span>
+                  <span class="hide-menu">Trainer Kit V1</span>
+               </div>
+               <span class="hide-menu badge bg-success-subtle text-success fs-1 py-1">Used</span>
+            </a>
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
