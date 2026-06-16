@@ -14,10 +14,10 @@
              <iconify-icon class="fs-6" icon="solar:question-circle-linear"></iconify-icon>
              Bantuan
           </a>
-          <a href="#"
+          <a href="trainer_shop"
              class="link-hover d-flex align-items-center gap-2 border-0 text-white lh-sm fs-4">
              <iconify-icon class="fs-6" icon="solar:case-round-linear"></iconify-icon>
-             Trainer
+             Shop
           </a>
        </div>
     </div>
