@@ -9,7 +9,7 @@
              <iconify-icon class="fs-6" icon="solar:window-frame-linear"></iconify-icon>
              Trainer Kit
           </a>
-          <a href="#"
+          <a href="help_desk"
              class="link-hover d-flex align-items-center gap-2 border-0 text-white lh-sm fs-4">
              <iconify-icon class="fs-6" icon="solar:question-circle-linear"></iconify-icon>
              Bantuan
