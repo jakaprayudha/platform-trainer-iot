@@ -1,12 +1,12 @@
 <div>
-   <div class="brand-logo d-flex align-items-center justify-content-between">
+   <!-- <div class="brand-logo d-flex align-items-center justify-content-between">
       <a href="./index.html" class="text-nowrap logo-img">
-         <img src="../assets/images/logos/logo.svg" alt="" />
+         <img src="../assets/images/logos/logo_platform_iot.png" width="100" alt="" />
       </a>
       <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
          <i class="ti ti-x fs-8"></i>
       </div>
-   </div>
+   </div> -->
    <!-- Sidebar navigation-->
    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
       <ul id="sidebarnav">
