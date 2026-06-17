@@ -165,6 +165,39 @@
          }
 
       }
+
+      #toast {
+         position: fixed;
+         top: 20px;
+         right: 20px;
+         min-width: 300px;
+         max-width: 450px;
+         padding: 15px 20px;
+         border-radius: 12px;
+         color: #fff;
+         font-size: 14px;
+         z-index: 99999;
+         opacity: 0;
+         transform: translateX(120%);
+         transition: all .3s ease;
+      }
+
+      #toast.show {
+         opacity: 1;
+         transform: translateX(0);
+      }
+
+      .toast-success {
+         background: #10b981;
+      }
+
+      .toast-error {
+         background: #ef4444;
+      }
+
+      .toast-warning {
+         background: #f59e0b;
+      }
    </style>
 
 </head>
@@ -187,10 +220,10 @@
 
 
          <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email address" required>
+            <input type="email" id="email" class="form-control" placeholder="Email address" required>
          </div>
 
-         <button class="btn" id="btnReset">Kirim Link Reset</button>
+         <button class="btn" id="btnReset">Reset Password</button>
 
 
       </form>
@@ -205,23 +238,206 @@
 
    </div>
 
-   <script>
-      function resetPassword(e) {
-         e.preventDefault();
+   <div id="passwordModal" class="modal">
 
-         const btn = document.getElementById('btnReset');
-         const success = document.getElementById('successMsg');
+      <div class="modal-content">
 
-         btn.innerText = "Mengirim...";
-         btn.disabled = true;
 
-         setTimeout(() => {
-            success.style.display = "block";
-            btn.innerText = "Terkirim";
-         }, 1000);
+         <h3>🔑 Password Baru</h3>
+
+         <p>Password Anda berhasil direset.</p>
+
+         <input
+            type="text"
+            id="newPassword"
+            readonly>
+
+         <button onclick="copyPassword()">
+            📋 Copy Password
+         </button>
+
+         <button onclick="closeModal()">
+            Tutup
+         </button>
+
+
+      </div>
+
+   </div>
+
+   <style>
+      .modal {
+         display: none;
+         position: fixed;
+         inset: 0;
+         background: rgba(0, 0, 0, .8);
+         z-index: 9999;
+         justify-content: center;
+         align-items: center;
       }
-   </script>
+
+      .modal-content {
+         background: #0f172a;
+         padding: 25px;
+         border-radius: 15px;
+         width: 350px;
+         text-align: center;
+      }
+
+      .modal-content input {
+         width: 100%;
+         padding: 10px;
+         margin: 15px 0;
+         border-radius: 10px;
+         border: none;
+         text-align: center;
+         font-size: 16px;
+      }
+
+      .modal-content button {
+         width: 100%;
+         margin-top: 10px;
+         padding: 10px;
+         border: none;
+         border-radius: 10px;
+         cursor: pointer;
+      }
+   </style>
+   <div id="toast"></div>
 
 </body>
+
+<script>
+   function showToast(message, type = 'error') {
+      const toast =
+         document.getElementById('toast');
+
+      toast.className = '';
+
+      toast.classList.add(
+         type === 'success' ?
+         'toast-success' :
+         type === 'warning' ?
+         'toast-warning' :
+         'toast-error'
+      );
+
+      toast.innerHTML = message;
+
+      setTimeout(() => {
+         toast.classList.add('show');
+      }, 100);
+
+      setTimeout(() => {
+         toast.classList.remove('show');
+      }, 3000);
+
+
+   }
+
+   async function resetPassword(e) {
+      e.preventDefault();
+
+      const email =
+         document.getElementById('email').value;
+
+      const btn =
+         document.getElementById('btnReset');
+
+      btn.innerHTML = 'Mengirim...';
+      btn.disabled = true;
+
+      const formData = new FormData();
+
+      formData.append(
+         'email',
+         email
+      );
+
+      try {
+
+         const response =
+            await fetch(
+               'controller/auth/reset-password.php', {
+                  method: 'POST',
+                  body: formData
+               }
+            );
+
+         const result =
+            await response.json();
+
+         if (result.status) {
+
+            showToast(
+               '✅ Password berhasil direset',
+               'success'
+            );
+
+            document.getElementById(
+                  'newPassword'
+               ).value =
+               result.password;
+
+            document.getElementById(
+                  'passwordModal'
+               ).style.display =
+               'flex';
+
+         } else {
+
+            showToast(
+               '❌ ' + result.message,
+               'error'
+            );
+
+         }
+
+      } catch (err) {
+
+         showToast(
+            '❌ Gagal terhubung ke server',
+            'error'
+         );
+
+      }
+
+      btn.innerHTML =
+         'Reset Password';
+
+      btn.disabled = false;
+
+
+   }
+
+   function copyPassword() {
+      const password =
+         document.getElementById(
+            'newPassword'
+         );
+
+
+      password.select();
+
+      navigator.clipboard.writeText(
+         password.value
+      );
+      showToast(
+         '✅ Password berhasil dicopy',
+         'success'
+      );
+
+
+   }
+
+   function closeModal() {
+      document.getElementById(
+            'passwordModal'
+         ).style.display =
+         'none';
+   }
+</script>
+
+
 
 </html>
