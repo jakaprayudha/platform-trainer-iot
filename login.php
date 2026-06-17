@@ -180,6 +180,40 @@
          }
 
       }
+
+      #toast {
+         position: fixed;
+         top: 20px;
+         right: 20px;
+         min-width: 280px;
+         max-width: 400px;
+         padding: 14px 18px;
+         border-radius: 12px;
+         color: #fff;
+         font-size: 14px;
+         font-weight: 500;
+         z-index: 99999;
+         opacity: 0;
+         transform: translateX(100%);
+         transition: all .3s ease;
+      }
+
+      #toast.show {
+         opacity: 1;
+         transform: translateX(0);
+      }
+
+      .toast-success {
+         background: #10b981;
+      }
+
+      .toast-error {
+         background: #ef4444;
+      }
+
+      .toast-warning {
+         background: #f59e0b;
+      }
    </style>
 
 </head>
@@ -200,62 +234,526 @@
 
       <form onsubmit="login(event)">
 
+         <input type="hidden" id="latitude">
+         <input type="hidden" id="longitude">
+         <form onsubmit="login(event)">
 
-         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required>
-         </div>
+            <input type="hidden" id="latitude">
+            <input type="hidden" id="longitude">
 
-         <div class="form-group">
-            <input type="password" id="password" class="form-control" placeholder="Password" required>
-            <span class="toggle-pass" onclick="togglePassword()">👁️</span>
-         </div>
+            <input type="hidden" id="browser">
+            <input type="hidden" id="os">
+            <input type="hidden" id="screen_width">
+            <input type="hidden" id="screen_height">
+            <input type="hidden" id="timezone">
 
-         <div class="extra">
-            <label><input type="checkbox"> Remember me</label>
-            <a href="forgot-password">Lupa Password?</a>
-         </div>
+            <div class="form-group">
+               <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="form-control"
+                  placeholder="Username"
+                  autocomplete="username"
+                  required>
+            </div>
 
-         <button class="btn-login" id="btnLogin">Masuk</button>
+            <div class="form-group">
+               <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-control"
+                  placeholder="Password"
+                  autocomplete="current-password"
+                  required>
 
-         <!-- 🔥 INI YANG KAMU MAU -->
-         <div class="back-landing">
-            <a href="index" onclick="goLanding(event)">← Kembali Landing Page</a>
-         </div>
+               <span
+                  class="toggle-pass"
+                  onclick="togglePassword()">
+                  👁️
+               </span>
+            </div>
+
+            <div class="extra">
+               <label>
+                  <input type="checkbox" id="remember">
+                  Remember me
+               </label>
+
+               <a href="forgot-password">
+                  Lupa Password?
+               </a>
+            </div>
+
+            <button
+               type="submit"
+               class="btn-login"
+               id="btnLogin">
+               Masuk
+            </button>
+
+            <div class="back-landing">
+               <a href="index" onclick="goLanding(event)">
+                  ← Kembali Landing Page
+               </a>
+            </div>
+
+
+         </form>
 
 
       </form>
 
    </div>
 
-   <script>
-      function togglePassword() {
-         const input = document.getElementById('password');
-         input.type = input.type === 'password' ? 'text' : 'password';
-      }
 
-      function login(e) {
-         e.preventDefault();
-
-         const btn = document.getElementById('btnLogin');
-         btn.innerText = "Loading...";
-         btn.disabled = true;
-
-         setTimeout(() => {
-            window.location.href = "portal/dashboard";
-         }, 1000);
-      }
-
-      /* 🔥 ANIMASI PINDAH HALAMAN */
-      function goLanding(e) {
-         e.preventDefault();
-         document.body.style.opacity = 0;
-
-         setTimeout(() => {
-            window.location.href = "index";
-         }, 400);
-      }
-   </script>
-
+   <div id="toast"></div>
 </body>
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+
+
+
+      document.getElementById('browser').value =
+
+         navigator.userAgent;
+
+
+
+      document.getElementById('screen_width').value =
+
+         window.screen.width;
+
+
+
+      document.getElementById('screen_height').value =
+
+         window.screen.height;
+
+
+
+      document.getElementById('timezone').value =
+
+         Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+
+
+      if (navigator.geolocation) {
+
+
+
+         navigator.geolocation.getCurrentPosition(
+
+            function(position) {
+
+
+
+               document.getElementById('latitude').value =
+
+                  position.coords.latitude;
+
+
+
+               document.getElementById('longitude').value =
+
+                  position.coords.longitude;
+
+
+
+            },
+
+            function() {
+
+               console.log('Lokasi tidak diizinkan');
+
+            }
+
+         );
+
+
+
+      }
+
+
+
+   });
+
+
+
+   function togglePassword() {
+
+
+
+      const input =
+
+         document.getElementById('password');
+
+
+
+      input.type =
+
+         input.type === 'password'
+
+         ?
+         'text'
+
+         :
+         'password';
+
+
+
+   }
+
+
+
+   function goLanding(e) {
+
+
+
+      e.preventDefault();
+
+
+
+      document.body.style.opacity = 0;
+
+
+
+      setTimeout(() => {
+
+
+
+         window.location.href = 'index';
+
+
+
+      }, 400);
+
+
+
+   }
+
+
+
+   function showToast(message, type = 'error') {
+
+
+
+      const toast =
+
+         document.getElementById('toast');
+
+
+
+      toast.className = '';
+
+
+
+      toast.classList.add(
+
+         type === 'success'
+
+         ?
+         'toast-success'
+
+         :
+         type === 'warning'
+
+         ?
+         'toast-warning'
+
+         :
+         'toast-error'
+
+      );
+
+
+
+      toast.innerHTML = message;
+
+
+
+      setTimeout(() => {
+
+         toast.classList.add('show');
+
+      }, 100);
+
+
+
+      setTimeout(() => {
+
+         toast.classList.remove('show');
+
+      }, 3000);
+
+
+
+   }
+
+
+
+   async function login(e) {
+
+
+
+      e.preventDefault();
+
+
+
+      const btn =
+
+         document.getElementById('btnLogin');
+
+
+
+      const username =
+
+         document.getElementById('username').value.trim();
+
+
+
+      const password =
+
+         document.getElementById('password').value.trim();
+
+
+
+      if (username === '') {
+
+
+
+         showToast(
+
+            '❌ Username wajib diisi'
+
+         );
+
+
+
+         return;
+
+      }
+
+
+
+      if (password === '') {
+
+
+
+         showToast(
+
+            '❌ Password wajib diisi'
+
+         );
+
+
+
+         return;
+
+      }
+
+
+
+      btn.innerHTML = 'Loading...';
+
+      btn.disabled = true;
+
+
+
+      try {
+
+
+
+         const formData = new FormData();
+
+
+
+         formData.append(
+
+            'username',
+
+            username
+
+         );
+
+
+
+         formData.append(
+
+            'password',
+
+            password
+
+         );
+
+
+
+         formData.append(
+
+            'latitude',
+
+            document.getElementById('latitude').value
+
+         );
+
+
+
+         formData.append(
+
+            'longitude',
+
+            document.getElementById('longitude').value
+
+         );
+
+
+
+         formData.append(
+
+            'browser',
+
+            document.getElementById('browser').value
+
+         );
+
+
+
+         formData.append(
+
+            'screen_width',
+
+            document.getElementById('screen_width').value
+
+         );
+
+
+
+         formData.append(
+
+            'screen_height',
+
+            document.getElementById('screen_height').value
+
+         );
+
+
+
+         formData.append(
+
+            'timezone',
+
+            document.getElementById('timezone').value
+
+         );
+
+
+
+         const response =
+
+            await fetch(
+
+               'controller/auth/login.php',
+
+               {
+
+                  method: 'POST',
+
+                  body: formData
+
+               }
+
+            );
+
+
+
+         const result =
+
+            await response.json();
+
+
+
+         if (result.status) {
+
+
+
+            showToast(
+
+               '✅ Login berhasil',
+
+               'success'
+
+            );
+
+
+
+            setTimeout(() => {
+
+
+
+               window.location.href =
+
+                  result.redirect;
+
+
+
+            }, 1000);
+
+
+
+         } else {
+
+
+
+            showToast(
+
+               '❌ ' + result.message,
+
+               'error'
+
+            );
+
+
+
+            btn.innerHTML = 'Masuk';
+
+            btn.disabled = false;
+
+
+
+         }
+
+
+
+      } catch (error) {
+
+
+
+         console.error(error);
+
+
+
+         showToast(
+
+            '❌ Gagal terhubung ke server',
+
+            'error'
+
+         );
+
+
+
+         btn.innerHTML = 'Masuk';
+
+         btn.disabled = false;
+
+
+
+      }
+
+
+
+   }
+</script>
 
 </html>
