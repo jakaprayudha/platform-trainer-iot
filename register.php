@@ -1,3 +1,6 @@
+<?php
+include 'database/connect.php';
+?>
 <!doctype html>
 
 <html lang="en">
@@ -5,7 +8,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>Login - IoT Trainer</title>
+   <title>Register - IoT Trainer</title>
 
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -179,6 +182,33 @@
             margin-top: 40px;
          }
 
+
+      }
+
+      .form-control {
+         width: 100%;
+         padding: 12px;
+         border-radius: 10px;
+         border: none;
+         outline: none;
+         background: #020617;
+         color: #fff;
+         box-sizing: border-box;
+      }
+
+      select.form-control {
+         padding: 12px;
+         min-height: 44px;
+         appearance: none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+
+         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5 8 12l6.5-6.5'/%3E%3C/svg%3E");
+
+         background-repeat: no-repeat;
+         background-position: right 12px center;
+         background-size: 12px;
+         padding-right: 35px;
       }
 
       #toast {
@@ -247,60 +277,124 @@
             <input type="hidden" id="screen_height">
             <input type="hidden" id="timezone">
 
-            <div class="form-group">
-               <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  class="form-control"
-                  placeholder="Username"
-                  autocomplete="username"
-                  required>
-            </div>
+            <form id="registerForm">
 
-            <div class="form-group">
-               <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  class="form-control"
-                  placeholder="Password"
-                  autocomplete="current-password"
-                  required>
 
-               <span
-                  class="toggle-pass"
-                  onclick="togglePassword()">
-                  👁️
-               </span>
-            </div>
+               <div class="form-group mb-3">
+                  <label>Nama Sekolah</label>
 
-            <div class="extra">
-               <label>
-                  <input type="checkbox" id="remember">
-                  Remember me
-               </label>
+                  <select
+                     id="school_id"
+                     class="form-control"
+                     required>
 
-               <a href="forgot-password">
-                  Lupa Password?
-               </a>
-            </div>
+                     <option value="">
+                        Pilih Sekolah
+                     </option>
+
+                     <?php
+
+                     $q = mysqli_query(
+                        $conn,
+                        "SELECT *FROM schools
+             ORDER BY school_name ASC"
+                     );
+
+                     while ($row = mysqli_fetch_assoc($q)) {
+                     ?>
+
+                        <option value="<?= $row['id'] ?>">
+                           <?= $row['school_name'] ?>
+                        </option>
+
+                     <?php } ?>
+
+                  </select>
+               </div>
+
+               <div class="form-group mb-3">
+                  <label>Nama Lengkap</label>
+
+                  <input
+                     type="text"
+                     id="fullname"
+                     class="form-control"
+                     required>
+               </div>
+
+               <div class="form-group mb-3">
+                  <label>Email</label>
+
+                  <input
+                     type="email"
+                     id="email"
+                     class="form-control"
+                     required>
+               </div>
+
+               <div class="form-group mb-3">
+                  <label>Password</label>
+
+                  <div class="form-group">
+                     <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Password"
+                        autocomplete="current-password"
+                        required>
+
+                     <span
+                        class="toggle-pass"
+                        onclick="togglePassword()">
+                        👁️
+                     </span>
+                  </div>
+               </div>
+
+               <div class="form-group mb-4">
+                  <label>Daftar Sebagai</label>
+
+                  <select
+                     id="role"
+                     class="form-control"
+                     required>
+
+                     <option value="">
+                        Pilih Role
+                     </option>
+
+                     <option value="guru">
+                        Guru
+                     </option>
+
+                     <option value="kepala_sekolah">
+                        Kepala Sekolah
+                     </option>
+
+                  </select>
+               </div>
+
+
+
+            </form>
+
+
+
+
 
             <button
-               type="submit"
-               class="btn-login"
-               id="btnLogin">
-               Masuk
+               type="submit" onclick="registerUser()"
+               class="btn-login">
+               Daftar
             </button>
 
             <div class="back-landing">
                <a href="index" onclick="goLanding(event)">
-                  Daftar Sekarang
+                  ← Kembali Landing Page
                </a>
             </div>
-
-
-
 
 
          </form>
@@ -314,75 +408,65 @@
    <div id="toast"></div>
 </body>
 <script>
-   document.addEventListener('DOMContentLoaded', () => {
+   async function registerUser() {
+      const formData =
+         new FormData();
 
 
+      formData.append(
+         'school_id',
+         document.getElementById('school_id').value
+      );
 
-      document.getElementById('browser').value =
+      formData.append(
+         'fullname',
+         document.getElementById('fullname').value
+      );
 
-         navigator.userAgent;
+      formData.append(
+         'email',
+         document.getElementById('email').value
+      );
 
+      formData.append(
+         'password',
+         document.getElementById('password').value
+      );
 
+      formData.append(
+         'role',
+         document.getElementById('role').value
+      );
 
-      document.getElementById('screen_width').value =
-
-         window.screen.width;
-
-
-
-      document.getElementById('screen_height').value =
-
-         window.screen.height;
-
-
-
-      document.getElementById('timezone').value =
-
-         Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-
-
-      if (navigator.geolocation) {
-
-
-
-         navigator.geolocation.getCurrentPosition(
-
-            function(position) {
-
-
-
-               document.getElementById('latitude').value =
-
-                  position.coords.latitude;
-
-
-
-               document.getElementById('longitude').value =
-
-                  position.coords.longitude;
-
-
-
-            },
-
-            function() {
-
-               console.log('Lokasi tidak diizinkan');
-
+      const response =
+         await fetch(
+            'controller/auth/register.php', {
+               method: 'POST',
+               body: formData
             }
-
          );
 
+      const result =
+         await response.json();
 
+      if (result.status) {
+
+         alert(
+            'Pendaftaran berhasil, menunggu verifikasi admin.'
+         );
+
+         window.location = 'login';
+
+      } else {
+
+         alert(
+            result.message
+         );
 
       }
 
 
-
-   });
-
-
+   }
 
    function togglePassword() {
 
@@ -403,356 +487,6 @@
 
          :
          'password';
-
-
-
-   }
-
-
-
-   function goLanding(e) {
-
-
-
-      e.preventDefault();
-
-
-
-      document.body.style.opacity = 0;
-
-
-
-      setTimeout(() => {
-
-
-
-         window.location.href = 'register';
-
-
-
-      }, 400);
-
-
-
-   }
-
-
-
-   function showToast(message, type = 'error') {
-
-
-
-      const toast =
-
-         document.getElementById('toast');
-
-
-
-      toast.className = '';
-
-
-
-      toast.classList.add(
-
-         type === 'success'
-
-         ?
-         'toast-success'
-
-         :
-         type === 'warning'
-
-         ?
-         'toast-warning'
-
-         :
-         'toast-error'
-
-      );
-
-
-
-      toast.innerHTML = message;
-
-
-
-      setTimeout(() => {
-
-         toast.classList.add('show');
-
-      }, 100);
-
-
-
-      setTimeout(() => {
-
-         toast.classList.remove('show');
-
-      }, 3000);
-
-
-
-   }
-
-
-
-   async function login(e) {
-
-
-
-      e.preventDefault();
-
-
-
-      const btn =
-
-         document.getElementById('btnLogin');
-
-
-
-      const username =
-
-         document.getElementById('username').value.trim();
-
-
-
-      const password =
-
-         document.getElementById('password').value.trim();
-
-
-
-      if (username === '') {
-
-
-
-         showToast(
-
-            '❌ Username wajib diisi'
-
-         );
-
-
-
-         return;
-
-      }
-
-
-
-      if (password === '') {
-
-
-
-         showToast(
-
-            '❌ Password wajib diisi'
-
-         );
-
-
-
-         return;
-
-      }
-
-
-
-      btn.innerHTML = 'Loading...';
-
-      btn.disabled = true;
-
-
-
-      try {
-
-
-
-         const formData = new FormData();
-
-
-
-         formData.append(
-
-            'username',
-
-            username
-
-         );
-
-
-
-         formData.append(
-
-            'password',
-
-            password
-
-         );
-
-
-
-         formData.append(
-
-            'latitude',
-
-            document.getElementById('latitude').value
-
-         );
-
-
-
-         formData.append(
-
-            'longitude',
-
-            document.getElementById('longitude').value
-
-         );
-
-
-
-         formData.append(
-
-            'browser',
-
-            document.getElementById('browser').value
-
-         );
-
-
-
-         formData.append(
-
-            'screen_width',
-
-            document.getElementById('screen_width').value
-
-         );
-
-
-
-         formData.append(
-
-            'screen_height',
-
-            document.getElementById('screen_height').value
-
-         );
-
-
-
-         formData.append(
-
-            'timezone',
-
-            document.getElementById('timezone').value
-
-         );
-
-
-
-         const response =
-
-            await fetch(
-
-               'controller/auth/login.php',
-
-               {
-
-                  method: 'POST',
-
-                  body: formData
-
-               }
-
-            );
-
-
-
-         const result =
-
-            await response.json();
-
-
-
-         if (result.status) {
-
-
-
-            showToast(
-
-               '✅ Login berhasil',
-
-               'success'
-
-            );
-
-
-
-            setTimeout(() => {
-
-
-
-               window.location.href =
-
-                  result.redirect;
-
-
-
-            }, 1000);
-
-
-
-         } else {
-
-
-
-            showToast(
-
-               '❌ ' + result.message,
-
-               'error'
-
-            );
-
-
-
-            btn.innerHTML = 'Masuk';
-
-            btn.disabled = false;
-
-
-
-         }
-
-
-
-      } catch (error) {
-
-
-
-         console.error(error);
-
-
-
-         showToast(
-
-            '❌ Gagal terhubung ke server',
-
-            'error'
-
-         );
-
-
-
-         btn.innerHTML = 'Masuk';
-
-         btn.disabled = false;
-
-
-
-      }
 
 
 
