@@ -63,6 +63,28 @@
        </div>
     </a>
  </li>
+ <li class="sidebar-item">
+    <a class="sidebar-link justify-content-between"
+       href="pre_test" aria-expanded="false">
+       <div class="d-flex align-items-center gap-3">
+          <span class="d-flex">
+             <iconify-icon icon="solar:file-line-duotone" class=""></iconify-icon>
+          </span>
+          <span class="hide-menu">Pre Test</span>
+       </div>
+    </a>
+ </li>
+ <li class="sidebar-item">
+    <a class="sidebar-link justify-content-between"
+       href="post_test" aria-expanded="false">
+       <div class="d-flex align-items-center gap-3">
+          <span class="d-flex">
+             <iconify-icon icon="solar:file-line-duotone" class=""></iconify-icon>
+          </span>
+          <span class="hide-menu">Post Test</span>
+       </div>
+    </a>
+ </li>
  <!-- <li class="sidebar-item">
     <a class="sidebar-link justify-content-between"
        href="praktikum" aria-expanded="false">
