@@ -63,7 +63,7 @@
        </div>
     </a>
  </li>
- <li class="sidebar-item">
+ <!-- <li class="sidebar-item">
     <a class="sidebar-link justify-content-between"
        href="praktikum" aria-expanded="false">
        <div class="d-flex align-items-center gap-3">
@@ -84,7 +84,7 @@
           <span class="hide-menu">Monitoring</span>
        </div>
     </a>
- </li>
+ </li> -->
  <li>
     <span class="sidebar-divider lg"></span>
  </li>
