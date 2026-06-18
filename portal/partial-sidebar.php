@@ -15,18 +15,15 @@ $role     = $_SESSION['role'] ?? '';
    <!-- Sidebar navigation-->
    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
       <ul id="sidebarnav">
-
          <?php
          if ($role == "guru" or $role = "superadmin") {
             require 'menu-guru.php';
          } else if ($role == "siswa" or $role = "superadmin") {
             require 'menu-siswa.php';
          } else if ($role == "admin" or $role = "superadmin") {
+            require 'menu-governance.php';
          }
          ?>
-
-
-
          <li class="nav-small-cap">
             <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
             <span class="hide-menu">Trainer Kit</span>
