@@ -268,13 +268,15 @@
                   </div>
 
                   <div class="d-flex gap-2">
+                     <a href="https://www.arduino.cc/en/software/" target='_blank'>
+                        <button class="btn btn-light">
 
-                     <button class="btn btn-light">
+                           <i class="ti ti-download"></i>
+                           Download Tools
 
-                        <i class="ti ti-download"></i>
-                        Download Tools
+                        </button>
+                     </a>
 
-                     </button>
 
                      <button class="btn btn-primary">
 
@@ -998,13 +1000,15 @@
                         </h5>
 
                         <div class="d-grid gap-3">
+                           <a href="https://www.arduino.cc/en/software/" target='_blank'>
+                              <button class="btn btn-primary">
 
-                           <button class="btn btn-primary">
+                                 <i class="ti ti-download"></i>
+                                 Download Arduino IDE
 
-                              <i class="ti ti-download"></i>
-                              Download Arduino IDE
+                              </button>
+                           </a>
 
-                           </button>
 
                            <button class="btn btn-success">
 

@@ -45,7 +45,7 @@
                 <span class="d-flex">
                    <span class="icon-small"></span>
                 </span>
-                <span class="hide-menu">Siswa</span>
+                <span class="hide-menu">wa</span>
              </div>
           </a>
        </li> -->
