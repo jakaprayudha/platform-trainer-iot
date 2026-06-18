@@ -25,6 +25,26 @@ if (mysqli_num_rows($query) == 0) {
 
 $user = mysqli_fetch_assoc($query);
 
+if ($user['verification_status'] == 'pending') {
+
+   echo json_encode([
+      'status' => false,
+      'message' => 'Akun Anda masih menunggu verifikasi admin.'
+   ]);
+
+   exit;
+}
+
+if ($user['verification_status'] == 'rejected') {
+
+   echo json_encode([
+      'status' => false,
+      'message' => 'Akun Anda ditolak oleh admin.'
+   ]);
+
+   exit;
+}
+
 if (!password_verify(
    $password,
    $user['password']
