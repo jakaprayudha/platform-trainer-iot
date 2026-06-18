@@ -408,6 +408,31 @@ include 'database/connect.php';
    <div id="toast"></div>
 </body>
 <script>
+   function showToast(message, type = 'success') {
+      const toast =
+         document.getElementById('toast');
+
+      toast.className = '';
+
+      toast.classList.add(
+         type === 'success' ?
+         'toast-success' :
+         type === 'warning' ?
+         'toast-warning' :
+         'toast-error'
+      );
+
+      toast.innerHTML = message;
+
+      setTimeout(() => {
+         toast.classList.add('show');
+      }, 100);
+
+      setTimeout(() => {
+         toast.classList.remove('show');
+      }, 2500);
+   }
+
    async function registerUser() {
       const formData =
          new FormData();
@@ -451,16 +476,22 @@ include 'database/connect.php';
 
       if (result.status) {
 
-         alert(
-            'Pendaftaran berhasil, menunggu verifikasi admin.'
+         showToast(
+            '✅ Pendaftaran berhasil, menunggu verifikasi admin.',
+            'success'
          );
 
-         window.location = 'login';
+         setTimeout(() => {
+
+            window.location = 'login';
+
+         }, 2000);
 
       } else {
 
-         alert(
-            result.message
+         showToast(
+            '❌ ' + result.message,
+            'error'
          );
 
       }

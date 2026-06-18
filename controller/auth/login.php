@@ -100,5 +100,6 @@ mysqli_query(
 
 echo json_encode([
    'status' => true,
+   'session' => $_SESSION,
    'redirect' => 'portal/dashboard'
 ]);
