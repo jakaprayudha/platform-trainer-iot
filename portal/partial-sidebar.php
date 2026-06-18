@@ -1,5 +1,4 @@
 <?php
-
 $fullname = $_SESSION['fullname'] ?? '';
 $role     = $_SESSION['role'] ?? '';
 ?>

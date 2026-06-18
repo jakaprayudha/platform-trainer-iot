@@ -1,3 +1,7 @@
+<?php
+require '../controller/profile/getProfile.php';
+require '../controller/profile/loginActivity.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -65,15 +69,15 @@
                               width="120">
 
                            <h4 class="fw-bold mb-1">
-                              Zack
+                              <?= $dataProfile['fullname'] ?>
                            </h4>
 
                            <p class="text-muted">
-                              Software Engineer
+                              <?= $dataProfile['email'] ?>
                            </p>
 
                            <span class="badge bg-primary">
-                              Enterprise Member
+                              <?= strtoupper($dataProfile['role']) ?>
                            </span>
 
                            <hr>
@@ -203,7 +207,7 @@
                               </small>
 
                               <div class="fw-bold">
-                                 Enterprise Package
+                                 Standard Package
                               </div>
 
                            </div>
@@ -229,7 +233,7 @@
                               </small>
 
                               <div class="fw-bold">
-                                 31 Desember 2026
+                                 18 Juni 2027
                               </div>
 
                            </div>
@@ -265,7 +269,7 @@
 
                                  <input type="text"
                                     class="form-control"
-                                    value="Zack">
+                                    value="<?= $dataProfile['fullname'] ?>">
 
                               </div>
 
@@ -277,7 +281,7 @@
 
                                  <input type="email"
                                     class="form-control"
-                                    value="zack@email.com">
+                                    value="<?= $dataProfile['email'] ?>">
 
                               </div>
 
@@ -289,7 +293,7 @@
 
                                  <input type="text"
                                     class="form-control"
-                                    value="Student"
+                                    value="<?= $dataProfile['role'] ?>"
                                     readonly>
 
                               </div>
@@ -302,7 +306,7 @@
 
                                  <input type="text"
                                     class="form-control"
-                                    value="Trainer Kit IoT Academy">
+                                    value="<?= $dataProfile['school_name'] ?>">
 
                               </div>
 
@@ -397,45 +401,29 @@
 
                         <div class="card-body">
 
-                           <div class="d-flex justify-content-between border-bottom pb-3 mb-3">
+                           <?php while ($dataLogin = mysqli_fetch_assoc($checkLogin)) { ?>
 
-                              <div>
+                              <div class="d-flex justify-content-between border-bottom pb-3 mb-3">
 
-                                 <div class="fw-semibold">
-                                    Windows Chrome
+                                 <div>
+
+                                    <div class="fw-semibold">
+                                       <?= htmlspecialchars($dataLogin['browser'] ?? 'Unknown Device') ?>
+                                    </div>
+
+                                    <small class="text-muted">
+                                       <?= htmlspecialchars($dataLogin['latitude'] + $dataLogin['longitude']  ?? '-') ?>
+                                    </small>
+
                                  </div>
 
-                                 <small class="text-muted">
-                                    Jakarta, Indonesia
+                                 <small class="<?= ($dataLogin['is_active'] ?? 0) == 1 ? 'text-success' : 'text-secondary' ?>">
+                                    <?= ($dataLogin['is_active'] ?? 0) == 1 ? 'Active Now' . '<br>' .  $dataLogin['login_time'] : 'Logged Out' ?>
                                  </small>
 
                               </div>
 
-                              <small class="text-success">
-                                 Active Now
-                              </small>
-
-                           </div>
-
-                           <div class="d-flex justify-content-between">
-
-                              <div>
-
-                                 <div class="fw-semibold">
-                                    Android Mobile
-                                 </div>
-
-                                 <small class="text-muted">
-                                    Surabaya, Indonesia
-                                 </small>
-
-                              </div>
-
-                              <small class="text-muted">
-                                 2 Days Ago
-                              </small>
-
-                           </div>
+                           <?php } ?>
 
                         </div>
 
