@@ -416,18 +416,25 @@ $role     = $_SESSION['role'] ?? '';
                <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
             </a>
          </li>
-         <li class="sidebar-item">
-            <a class="sidebar-link justify-content-between"
-               href="exam_results"
-               aria-expanded="false">
-               <div class="d-flex align-items-center gap-3">
-                  <span class="d-flex">
-                     <iconify-icon icon="solar:graph-2-line-duotone" class=""></iconify-icon>
-                  </span>
-                  <span class="hide-menu">Hasil Ujian</span>
-               </div>
-            </a>
-         </li>
+
+         <?php
+         if ($_SESSION['role'] !== 'superadmin' && $_SESSION['role'] !== 'admin') {
+         ?>
+            <li class="sidebar-item">
+               <a class="sidebar-link justify-content-between"
+                  href="exam_results"
+                  aria-expanded="false">
+                  <div class="d-flex align-items-center gap-3">
+                     <span class="d-flex">
+                        <iconify-icon icon="solar:graph-2-line-duotone" class=""></iconify-icon>
+                     </span>
+                     <span class="hide-menu">Hasil Ujian</span>
+                  </div>
+               </a>
+            </li>
+         <?php
+         }
+         ?>
          <li>
             <span class="sidebar-divider lg"></span>
          </li>
