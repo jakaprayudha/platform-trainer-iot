@@ -385,7 +385,7 @@ if ($posttest_data) {
       <!-- FOOTER -->
       <div class="footer-print">
          <p>Document ini dicetak dari sistem Platform Trainer IoT</p>
-         <p style="margin: 0;">© 2024 Platform Trainer IoT. All Rights Reserved.</p>
+         <p style="margin: 0;">© <?= date('Y') ?> Platform Trainer IoT. All Rights Reserved.</p>
       </div>
 
    </div>
