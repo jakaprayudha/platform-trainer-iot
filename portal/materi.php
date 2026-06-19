@@ -33,6 +33,12 @@
                      <h4 class="fw-bold mb-1">📚 Master Materi</h4>
                      <p class="text-muted mb-0">Kelola seluruh materi praktikum</p>
                   </div>
+                  <a href="https://drive.google.com/drive/folders/1lDk3KqkY_jmHZXjgLcN2zsyT1seWXGma?usp=sharing" target='_blank'>
+                     <button class="btn btn-primary d-flex align-items-center gap-2">
+                        <i class="ti ti-file"></i>
+                        Lihat Module Lainnya
+                     </button>
+                  </a>
                </div>
 
                <!-- CARD -->
