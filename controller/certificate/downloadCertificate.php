@@ -118,7 +118,7 @@ $certificate_number =
 
          <img
             src="../../assets/images/logos/kates.png"
-            class="logo-top">
+            class="logo-top" height="200px">
 
          <div class="title">
             SERTIFIKAT
