@@ -53,7 +53,7 @@ $certificate_number =
          margin: 30px auto;
          background: white;
          border: 12px solid #0d6efd;
-         padding: 60px;
+         padding: 40px;
          position: relative;
       }
 
@@ -118,7 +118,7 @@ $certificate_number =
 
          <img
             src="../../assets/images/logos/kates.png"
-            class="logo-top" height="200px">
+            class="logo-top" height="150px">
 
          <div class="title">
             SERTIFIKAT
