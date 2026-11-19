@@ -31,7 +31,11 @@ if ($schedule) {
     }
 }
 ?>
-<!doctype html><html lang="id"><head><?php require 'partial-head.php'; ?></head><body><div class="page-wrapper" id="main-wrapper"><aside class="left-sidebar"><?php require 'partial-sidebar.php'; ?></aside><div class="body-wrapper"><div class="body-wrapper-inner"><div class="container-fluid py-4">
+<!doctype html><html lang="id"><head><?php require 'partial-head.php'; ?></head><body>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+<?php require 'partial-topstrip.php'; ?>
+<aside class="left-sidebar"><?php require 'partial-sidebar.php'; ?></aside>
+<div class="body-wrapper"><?php require 'partial-header.php'; ?><div class="body-wrapper-inner"><div class="container-fluid py-4">
 <h4 class="fw-bold"><?= $testType === 'pretest' ? 'Pre-Test' : 'Post-Test' ?></h4><p class="text-muted"><?= $questionCount ?> soal dari bank soal bersama.</p>
 <?php if (!$schedule): ?><div class="alert alert-warning">Belum ada jadwal tes yang aktif.</div><?php elseif ($alreadyCompleted): ?><div class="alert alert-success">Anda sudah menyelesaikan <?= $testType === 'pretest' ? 'pre-test' : 'post-test' ?> untuk jadwal <strong><?= htmlspecialchars($schedule['title']) ?></strong>. Jadwal berikutnya akan membuka kesempatan baru.</div><?php else: ?>
 <div class="alert alert-info"><strong><?= htmlspecialchars($schedule['title']) ?></strong><br>Aktif hingga <?= htmlspecialchars($schedule['closes_at']) ?></div>

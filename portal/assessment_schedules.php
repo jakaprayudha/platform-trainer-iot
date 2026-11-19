@@ -4,7 +4,11 @@ if (!in_array($_SESSION['role'] ?? '', ['admin', 'superadmin'], true)) { header(
 $schedules = mysqli_query($conn, 'SELECT s.*, COUNT(r.id) AS attempts FROM assessment_schedules s LEFT JOIN assessment_results r ON r.schedule_id = s.id GROUP BY s.id ORDER BY s.opens_at DESC');
 $questionCount = (int) (mysqli_fetch_assoc(mysqli_query($conn, 'SELECT COUNT(*) AS total FROM assessment_questions WHERE is_active = 1'))['total'] ?? 0);
 ?>
-<!doctype html><html lang="id"><head><?php require 'partial-head.php'; ?></head><body><div class="page-wrapper" id="main-wrapper"><aside class="left-sidebar"><?php require 'partial-sidebar.php'; ?></aside><div class="body-wrapper"><div class="body-wrapper-inner"><div class="container-fluid py-4">
+<!doctype html><html lang="id"><head><?php require 'partial-head.php'; ?></head><body>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+<?php require 'partial-topstrip.php'; ?>
+<aside class="left-sidebar"><?php require 'partial-sidebar.php'; ?></aside>
+<div class="body-wrapper"><?php require 'partial-header.php'; ?><div class="body-wrapper-inner"><div class="container-fluid py-4">
 <h4 class="fw-bold">Jadwal Pre-Test &amp; Post-Test</h4><p class="text-muted">Setiap jadwal membuka satu pre-test (10 soal) dan satu post-test (20 soal) per peserta.</p>
 <?php if (isset($_GET['error'])): ?><div class="alert alert-danger"><?= htmlspecialchars($_GET['error']) ?></div><?php endif; ?><?php if (isset($_GET['success'])): ?><div class="alert alert-success"><?= htmlspecialchars($_GET['success']) ?></div><?php endif; ?>
 <div class="alert <?= $questionCount >= 20 ? 'alert-info' : 'alert-warning' ?>">Soal aktif: <strong><?= $questionCount ?></strong>/20. Jadwal hanya dapat dibuat jika tersedia minimal 20 soal aktif.</div>
