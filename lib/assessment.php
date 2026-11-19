@@ -42,6 +42,16 @@ function assessment_category(int $score): string
     return 'Perlu Pendampingan';
 }
 
+function assessment_can_download_certificate(string $testType, int $score): bool
+{
+    return $testType === 'posttest' && $score >= 75;
+}
+
+function assessment_result_heading(int $score): string
+{
+    return 'Nilai Anda: ' . $score;
+}
+
 function assessment_schedule_is_valid(string $opensAt, string $closesAt): bool
 {
     $openTime = strtotime($opensAt);

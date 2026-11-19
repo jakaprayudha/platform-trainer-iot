@@ -3,35 +3,40 @@
 session_start();
 
 require_once dirname(__DIR__, 2) . '/database/connect.php';
+require_once dirname(__DIR__, 2) . '/lib/assessment.php';
 
-$user_id = $_SESSION['user_id'];
+$user_id = (int) ($_SESSION['user_id'] ?? 0);
+$schedule_id = (int) ($_GET['schedule_id'] ?? 0);
 
-$query = mysqli_query(
+if (!$user_id || !$schedule_id) {
+   http_response_code(403);
+   die('Sertifikat tidak tersedia');
+}
+
+$statement = mysqli_prepare(
    $conn,
-   "SELECT
-      u.fullname,
-      u.school_id,
-      p.score,
-      p.category,
-      p.created_at
-   FROM posttest_results p
-   LEFT JOIN users u
-   ON u.id = p.user_id
-   WHERE p.user_id='$user_id'
-   LIMIT 1"
+   'SELECT u.fullname, u.school_id, r.score, r.category, r.created_at
+    FROM assessment_results r
+    INNER JOIN users u ON u.id = r.user_id
+    WHERE r.user_id = ? AND r.schedule_id = ? AND r.test_type = \'posttest\'
+    LIMIT 1'
 );
+mysqli_stmt_bind_param($statement, 'ii', $user_id, $schedule_id);
+mysqli_stmt_execute($statement);
+$query = mysqli_stmt_get_result($statement);
 
 $data = mysqli_fetch_assoc($query);
 
-if (!$data) {
-   die('Data sertifikat tidak ditemukan');
+if (!$data || !assessment_can_download_certificate('posttest', (int) $data['score'])) {
+   http_response_code(403);
+   die('Anda belum memenuhi nilai minimal untuk mendapatkan sertifikat');
 }
 
 $certificate_number =
    'CERT-IOT-' .
    date('Y') .
    '-' .
-   str_pad($user_id, 5, '0', STR_PAD_LEFT);
+   str_pad($user_id, 5, '0', STR_PAD_LEFT) . '-' . str_pad($schedule_id, 5, '0', STR_PAD_LEFT);
 
 ?>
 <!doctype html>

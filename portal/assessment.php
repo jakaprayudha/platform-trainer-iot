@@ -22,10 +22,11 @@ if (!$schedule && mysqli_num_rows($schedules) > 0) {
 $alreadyCompleted = false;
 $questions = null;
 if ($schedule) {
-    $resultStatement = mysqli_prepare($conn, 'SELECT id FROM assessment_results WHERE schedule_id = ? AND user_id = ? AND test_type = ?');
+    $resultStatement = mysqli_prepare($conn, 'SELECT id, score, category, created_at FROM assessment_results WHERE schedule_id = ? AND user_id = ? AND test_type = ?');
     mysqli_stmt_bind_param($resultStatement, 'iis', $scheduleId, $userId, $testType);
     mysqli_stmt_execute($resultStatement);
-    $alreadyCompleted = mysqli_num_rows(mysqli_stmt_get_result($resultStatement)) > 0;
+    $assessmentResult = mysqli_fetch_assoc(mysqli_stmt_get_result($resultStatement));
+    $alreadyCompleted = $assessmentResult !== null;
     if (!$alreadyCompleted) {
         $questions = mysqli_query($conn, "SELECT id, question_text, option_a, option_b, option_c, option_d FROM assessment_questions WHERE is_active = 1 ORDER BY RAND() LIMIT $questionCount");
     }
@@ -44,7 +45,22 @@ if ($schedule) {
                 <div class="container-fluid py-4">
                     <br><br><br><br><br><br>
                     <h4 class="fw-bold"><?= $testType === 'pretest' ? 'Pre-Test' : 'Post-Test' ?></h4>
-                    <?php if (!$schedule): ?><div class="alert alert-warning">Belum ada jadwal tes yang aktif.</div><?php elseif ($alreadyCompleted): ?><div class="alert alert-success">Anda sudah menyelesaikan <?= $testType === 'pretest' ? 'pre-test' : 'post-test' ?> untuk jadwal <strong><?= htmlspecialchars($schedule['title']) ?></strong>. Jadwal berikutnya akan membuka kesempatan baru.</div><?php else: ?>
+                    <?php if (!$schedule): ?><div class="alert alert-warning">Belum ada jadwal tes yang aktif.</div><?php elseif ($alreadyCompleted): ?>
+                        <div class="alert alert-success">Anda sudah menyelesaikan <?= $testType === 'pretest' ? 'pre-test' : 'post-test' ?> untuk jadwal <strong><?= htmlspecialchars($schedule['title']) ?></strong>.</div>
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-body text-center py-4">
+                                <p class="text-muted mb-1">Hasil <?= $testType === 'pretest' ? 'Pre-Test' : 'Post-Test' ?></p>
+                                <h2 class="fw-bold text-primary mb-1"><?= assessment_result_heading((int) $assessmentResult['score']) ?></h2>
+                                <p class="mb-1">Kategori: <strong><?= htmlspecialchars($assessmentResult['category']) ?></strong></p>
+                                <small class="text-muted">Diselesaikan <?= htmlspecialchars(date('d M Y H:i', strtotime($assessmentResult['created_at']))) ?></small>
+                                <?php if (assessment_can_download_certificate($testType, (int) $assessmentResult['score'])): ?>
+                                    <div class="mt-4"><a href="../controller/certificate/downloadCertificate.php?schedule_id=<?= $scheduleId ?>" target="_blank" class="btn btn-success"><i class="ti ti-download"></i> Download & Cetak Sertifikat</a></div>
+                                <?php elseif ($testType === 'posttest'): ?>
+                                    <div class="alert alert-warning mt-4 mb-0">Nilai minimal untuk mendapatkan sertifikat adalah <strong>75</strong>.</div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php else: ?>
                         <div class="alert alert-info"><strong><?= htmlspecialchars($schedule['title']) ?></strong><br>Aktif hingga <?= htmlspecialchars($schedule['closes_at']) ?></div>
                         <form id="assessmentForm"><input type="hidden" name="schedule_id" value="<?= $scheduleId ?>"><input type="hidden" name="test_type" value="<?= $testType ?>">
                             <?php $number = 1;
@@ -64,7 +80,7 @@ if ($schedule) {
                                 });
                                 const data = await response.json();
                                 if (data.status) {
-                                    alert('Tes tersimpan. Nilai: ' + data.score);
+                                    alert('Tes tersimpan. Nilai: ' + data.score + '. Hasil lengkap akan ditampilkan di halaman ini.');
                                     window.location.reload();
                                 } else {
                                     alert(data.message);
