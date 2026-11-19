@@ -98,3 +98,20 @@ function assessment_results_report_filters(array $input): array
         'search' => trim((string) ($input['search'] ?? '')),
     ];
 }
+
+function assessment_reset_target(array $input): ?array
+{
+    $scheduleId = filter_var($input['schedule_id'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+    $userId = filter_var($input['user_id'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+    $testType = $input['test_type'] ?? '';
+
+    if (!$scheduleId || !$userId || !in_array($testType, ['pretest', 'posttest'], true)) {
+        return null;
+    }
+
+    return [
+        'schedule_id' => $scheduleId,
+        'user_id' => $userId,
+        'test_type' => $testType,
+    ];
+}

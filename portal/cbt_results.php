@@ -7,6 +7,10 @@ if (!in_array($_SESSION['role'] ?? '', ['admin', 'superadmin'], true)) {
     exit;
 }
 
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 $filters = assessment_results_report_filters($_GET);
 $scheduleId = $filters['schedule_id'];
 $testType = $filters['test_type'];
@@ -60,14 +64,15 @@ foreach ($results as $result) {
             <div class="col-md-3"><div class="card border-0 shadow-sm"><div class="card-body"><h3 class="fw-bold text-warning"><?= $posttestCount ?></h3><small class="text-muted">Post-Test Selesai</small></div></div></div>
         </div>
 
-        <div class="card shadow-sm border-0"><div class="card-header bg-light"><h5 class="mb-0">Daftar Hasil Peserta</h5></div><div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead class="table-light"><tr><th>No.</th><th>Jadwal</th><th>Peserta</th><th>Tipe Tes</th><th>Nilai</th><th>Kategori</th><th>Jumlah Soal</th><th>Diselesaikan</th></tr></thead><tbody>
-        <?php if (!$results): ?><tr><td colspan="8" class="text-center text-muted py-4">Belum ada hasil yang sesuai dengan filter.</td></tr>
+        <?php if (isset($_GET['reset'])): ?><div class="alert <?= $_GET['reset'] === 'success' ? 'alert-success' : 'alert-warning' ?> mb-4"><?= $_GET['reset'] === 'success' ? 'Hasil tes berhasil direset. Peserta dapat mengerjakan ulang selama jadwal masih aktif.' : 'Hasil tes tidak dapat direset.' ?></div><?php endif; ?>
+        <div class="card shadow-sm border-0"><div class="card-header bg-light"><h5 class="mb-0">Daftar Hasil Peserta</h5></div><div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead class="table-light"><tr><th>No.</th><th>Jadwal</th><th>Peserta</th><th>Tipe Tes</th><th>Nilai</th><th>Kategori</th><th>Jumlah Soal</th><th>Diselesaikan</th><th>Aksi</th></tr></thead><tbody>
+        <?php if (!$results): ?><tr><td colspan="9" class="text-center text-muted py-4">Belum ada hasil yang sesuai dengan filter.</td></tr>
         <?php else: foreach ($results as $index => $result): ?><tr>
             <td><?= $index + 1 ?></td>
             <td><strong><?= htmlspecialchars($result['schedule_title']) ?></strong><br><small class="text-muted"><?= htmlspecialchars($result['opens_at']) ?> – <?= htmlspecialchars($result['closes_at']) ?></small></td>
             <td><?= htmlspecialchars($result['fullname']) ?><br><small class="text-muted"><?= htmlspecialchars($result['email']) ?></small></td>
             <td><span class="badge <?= $result['test_type'] === 'pretest' ? 'bg-primary' : 'bg-success' ?>"><?= $result['test_type'] === 'pretest' ? 'Pre-Test' : 'Post-Test' ?></span></td>
-            <td class="fw-bold"><?= (int) $result['score'] ?></td><td><?= htmlspecialchars($result['category']) ?></td><td><?= (int) $result['total_question'] ?></td><td><?= htmlspecialchars(date('d M Y H:i', strtotime($result['created_at']))) ?></td>
+            <td class="fw-bold"><?= (int) $result['score'] ?></td><td><?= htmlspecialchars($result['category']) ?></td><td><?= (int) $result['total_question'] ?></td><td><?= htmlspecialchars(date('d M Y H:i', strtotime($result['created_at']))) ?></td><td><form method="post" action="../controller/assessment/resetAssessment.php" onsubmit="return confirm('Reset hasil tes ini? Jawaban dan nilai peserta akan dihapus agar peserta dapat mengerjakan ulang.');"><input type="hidden" name="schedule_id" value="<?= (int) $result['schedule_id'] ?>"><input type="hidden" name="user_id" value="<?= (int) $result['user_id'] ?>"><input type="hidden" name="test_type" value="<?= htmlspecialchars($result['test_type']) ?>"><input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>"><button class="btn btn-sm btn-outline-danger" type="submit" title="Reset agar peserta dapat mengerjakan ulang"><i class="ti ti-refresh"></i> Reset</button></form></td>
         </tr><?php endforeach; endif; ?>
         </tbody></table></div></div>
     </div></div></div>
