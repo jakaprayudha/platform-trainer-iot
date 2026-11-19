@@ -1,5 +1,6 @@
 <?php
-require '../controller/profile/getProfile.php';
+header('Location: assessment.php?type=pretest');
+exit;
 $checkPretest = mysqli_query(
    $conn,
    "SELECT *

@@ -377,6 +377,41 @@ $role     = $_SESSION['role'] ?? '';
                <span class="hide-menu badge bg-secondary-subtle text-secondary fs-1 py-1">Pro</span>
             </a>
          </li>
+         <?php if (in_array($_SESSION['role'] ?? '', ['superadmin', 'admin'], true)) { ?>
+         <li class="sidebar-item">
+            <a class="sidebar-link justify-content-between" href="question_bank" aria-expanded="false">
+               <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex"><iconify-icon icon="solar:question-square-line-duotone"></iconify-icon></span>
+                  <span class="hide-menu">Bank Soal Tes</span>
+               </div>
+            </a>
+         </li>
+         <li class="sidebar-item">
+            <a class="sidebar-link justify-content-between" href="assessment_schedules" aria-expanded="false">
+               <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex"><iconify-icon icon="solar:calendar-line-duotone"></iconify-icon></span>
+                  <span class="hide-menu">Jadwal Tes</span>
+               </div>
+            </a>
+         </li>
+         <?php } else { ?>
+         <li class="sidebar-item">
+            <a class="sidebar-link justify-content-between" href="assessment?type=pretest" aria-expanded="false">
+               <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex"><iconify-icon icon="solar:clipboard-check-line-duotone"></iconify-icon></span>
+                  <span class="hide-menu">Pre-Test</span>
+               </div>
+            </a>
+         </li>
+         <li class="sidebar-item">
+            <a class="sidebar-link justify-content-between" href="assessment?type=posttest" aria-expanded="false">
+               <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex"><iconify-icon icon="solar:clipboard-check-line-duotone"></iconify-icon></span>
+                  <span class="hide-menu">Post-Test</span>
+               </div>
+            </a>
+         </li>
+         <?php } ?>
          <li class="sidebar-item">
             <a class="sidebar-link justify-content-between"
                href="cbt_assesment"

@@ -1,5 +1,7 @@
 .htaccess
 src/
-database/
+database/*
+!database/migrations/
+!database/migrations/*.sql
 uploads/material/
 uploads/device/

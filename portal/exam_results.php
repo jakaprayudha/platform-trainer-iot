@@ -61,6 +61,12 @@ if ($sort_by === 'pretest_score') {
 
 $result = mysqli_query($conn, $query);
 $total_users = mysqli_num_rows($result);
+
+$scheduledResults = mysqli_query($conn, "SELECT ar.*, s.title AS schedule_title, u.fullname, u.email
+   FROM assessment_results ar
+   INNER JOIN assessment_schedules s ON s.id = ar.schedule_id
+   INNER JOIN users u ON u.id = ar.user_id
+   ORDER BY s.opens_at DESC, ar.created_at DESC");
 ?>
 
 <!doctype html>
@@ -202,6 +208,29 @@ $total_users = mysqli_num_rows($result);
                </div>
 
                <!-- TABLE -->
+               <div class="card shadow-sm border-0 mb-4">
+                  <div class="card-header bg-light">
+                     <h5 class="mb-0">🗓️ Hasil Tes Berdasarkan Jadwal</h5>
+                  </div>
+                  <div class="table-responsive">
+                     <table class="table table-hover mb-0">
+                        <thead class="table-light"><tr><th>Jadwal</th><th>Peserta</th><th>Tipe</th><th>Nilai</th><th>Kategori</th><th>Tanggal</th></tr></thead>
+                        <tbody>
+                        <?php while ($scheduled = mysqli_fetch_assoc($scheduledResults)) { ?>
+                           <tr>
+                              <td><?= htmlspecialchars($scheduled['schedule_title']) ?></td>
+                              <td><?= htmlspecialchars($scheduled['fullname']) ?><br><small class="text-muted"><?= htmlspecialchars($scheduled['email']) ?></small></td>
+                              <td><?= $scheduled['test_type'] === 'pretest' ? 'Pre-Test' : 'Post-Test' ?></td>
+                              <td><?= (int) $scheduled['score'] ?></td>
+                              <td><?= htmlspecialchars($scheduled['category']) ?></td>
+                              <td><?= htmlspecialchars($scheduled['created_at']) ?></td>
+                           </tr>
+                        <?php } ?>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+
                <div class="card shadow-sm border-0">
                   <div class="card-header bg-light">
                      <h5 class="mb-0">📋 Daftar Hasil Ujian</h5>
