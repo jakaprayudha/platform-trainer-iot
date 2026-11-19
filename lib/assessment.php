@@ -44,7 +44,7 @@ function assessment_category(int $score): string
 
 function assessment_can_download_certificate(string $testType, int $score): bool
 {
-    return $testType === 'posttest' && $score >= 75;
+    return $testType === 'posttest' && $score >= 10;
 }
 
 function assessment_result_heading(int $score): string
