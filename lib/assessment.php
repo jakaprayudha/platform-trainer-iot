@@ -83,3 +83,18 @@ function assessment_schedule_label(string $title, string $opensAt, string $close
 {
     return sprintf('%s (%s – %s)', $title, date('d M Y H:i', strtotime($opensAt)), date('d M Y H:i', strtotime($closesAt)));
 }
+
+function assessment_results_report_filters(array $input): array
+{
+    $scheduleId = filter_var($input['schedule_id'] ?? 0, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) ?: 0;
+    $testType = $input['test_type'] ?? 'all';
+    if (!in_array($testType, ['all', 'pretest', 'posttest'], true)) {
+        $testType = 'all';
+    }
+
+    return [
+        'schedule_id' => $scheduleId,
+        'test_type' => $testType,
+        'search' => trim((string) ($input['search'] ?? '')),
+    ];
+}
