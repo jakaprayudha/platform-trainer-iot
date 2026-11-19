@@ -15,11 +15,11 @@ $role     = $_SESSION['role'] ?? '';
    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
       <ul id="sidebarnav">
          <?php
-         if ($role == "guru" or $role = "superadmin") {
+         if ($role === "guru" || $role === "superadmin") {
             require 'menu-guru.php';
-         } else if ($role == "siswa" or $role = "superadmin") {
+         } else if ($role === "siswa") {
             require 'menu-siswa.php';
-         } else if ($role == "admin" or $role = "superadmin") {
+         } else if ($role === "admin") {
             require 'menu-governance.php';
          }
          ?>
