@@ -31,16 +31,51 @@ if ($schedule) {
     }
 }
 ?>
-<!doctype html><html lang="id"><head><?php require 'partial-head.php'; ?></head><body>
-<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
-<?php require 'partial-topstrip.php'; ?>
-<aside class="left-sidebar"><?php require 'partial-sidebar.php'; ?></aside>
-<div class="body-wrapper"><?php require 'partial-header.php'; ?><div class="body-wrapper-inner"><div class="container-fluid py-4">
-<h4 class="fw-bold"><?= $testType === 'pretest' ? 'Pre-Test' : 'Post-Test' ?></h4><p class="text-muted"><?= $questionCount ?> soal dari bank soal bersama.</p>
-<?php if (!$schedule): ?><div class="alert alert-warning">Belum ada jadwal tes yang aktif.</div><?php elseif ($alreadyCompleted): ?><div class="alert alert-success">Anda sudah menyelesaikan <?= $testType === 'pretest' ? 'pre-test' : 'post-test' ?> untuk jadwal <strong><?= htmlspecialchars($schedule['title']) ?></strong>. Jadwal berikutnya akan membuka kesempatan baru.</div><?php else: ?>
-<div class="alert alert-info"><strong><?= htmlspecialchars($schedule['title']) ?></strong><br>Aktif hingga <?= htmlspecialchars($schedule['closes_at']) ?></div>
-<form id="assessmentForm"><input type="hidden" name="schedule_id" value="<?= $scheduleId ?>"><input type="hidden" name="test_type" value="<?= $testType ?>">
-<?php $number = 1; while ($question = mysqli_fetch_assoc($questions)): ?><div class="card mb-3"><div class="card-body"><h6><?= $number++ ?>. <?= htmlspecialchars($question['question_text']) ?></h6><?php foreach (['A' => 'option_a', 'B' => 'option_b', 'C' => 'option_c', 'D' => 'option_d'] as $letter => $column): ?><div class="form-check"><input required class="form-check-input" type="radio" name="answers[<?= (int) $question['id'] ?>]" value="<?= $letter ?>" id="q<?= $question['id'] . $letter ?>"><label class="form-check-label" for="q<?= $question['id'] . $letter ?>"><?= $letter ?>. <?= htmlspecialchars($question[$column]) ?></label></div><?php endforeach; ?></div></div><?php endwhile; ?>
-<button class="btn btn-primary">Kirim Jawaban</button></form>
-<script>document.getElementById('assessmentForm').addEventListener('submit', async function(event) { event.preventDefault(); const response = await fetch('../controller/assessment/storeAssessment.php', {method: 'POST', body: new FormData(this)}); const data = await response.json(); if (data.status) { alert('Tes tersimpan. Nilai: ' + data.score); window.location.reload(); } else { alert(data.message); } });</script>
-<?php endif; ?></div></div></div></div><?php require 'library.php'; ?></body></html>
+<!doctype html>
+<html lang="id">
+
+<head><?php require 'partial-head.php'; ?></head>
+
+<body>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+        <?php require 'partial-topstrip.php'; ?>
+        <aside class="left-sidebar"><?php require 'partial-sidebar.php'; ?></aside>
+        <div class="body-wrapper"><?php require 'partial-header.php'; ?><div class="body-wrapper-inner">
+                <div class="container-fluid py-4">
+                    <br><br><br><br><br><br>
+                    <h4 class="fw-bold"><?= $testType === 'pretest' ? 'Pre-Test' : 'Post-Test' ?></h4>
+                    <?php if (!$schedule): ?><div class="alert alert-warning">Belum ada jadwal tes yang aktif.</div><?php elseif ($alreadyCompleted): ?><div class="alert alert-success">Anda sudah menyelesaikan <?= $testType === 'pretest' ? 'pre-test' : 'post-test' ?> untuk jadwal <strong><?= htmlspecialchars($schedule['title']) ?></strong>. Jadwal berikutnya akan membuka kesempatan baru.</div><?php else: ?>
+                        <div class="alert alert-info"><strong><?= htmlspecialchars($schedule['title']) ?></strong><br>Aktif hingga <?= htmlspecialchars($schedule['closes_at']) ?></div>
+                        <form id="assessmentForm"><input type="hidden" name="schedule_id" value="<?= $scheduleId ?>"><input type="hidden" name="test_type" value="<?= $testType ?>">
+                            <?php $number = 1;
+                                                                                                                                                                                                                                                                                                                                                                                                            while ($question = mysqli_fetch_assoc($questions)): ?><div class="card mb-3">
+                                    <div class="card-body">
+                                        <h6><?= $number++ ?>. <?= htmlspecialchars($question['question_text']) ?></h6><?php foreach (['A' => 'option_a', 'B' => 'option_b', 'C' => 'option_c', 'D' => 'option_d'] as $letter => $column): ?><div class="form-check"><input required class="form-check-input" type="radio" name="answers[<?= (int) $question['id'] ?>]" value="<?= $letter ?>" id="q<?= $question['id'] . $letter ?>"><label class="form-check-label" for="q<?= $question['id'] . $letter ?>"><?= $letter ?>. <?= htmlspecialchars($question[$column]) ?></label></div><?php endforeach; ?>
+                                    </div>
+                                </div><?php endwhile; ?>
+                            <button class="btn btn-primary">Kirim Jawaban</button>
+                        </form>
+                        <script>
+                            document.getElementById('assessmentForm').addEventListener('submit', async function(event) {
+                                event.preventDefault();
+                                const response = await fetch('../controller/assessment/storeAssessment.php', {
+                                    method: 'POST',
+                                    body: new FormData(this)
+                                });
+                                const data = await response.json();
+                                if (data.status) {
+                                    alert('Tes tersimpan. Nilai: ' + data.score);
+                                    window.location.reload();
+                                } else {
+                                    alert(data.message);
+                                }
+                            });
+                        </script>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div><?php require 'library.php'; ?>
+</body>
+
+</html>
